@@ -1,0 +1,35 @@
+{
+  "name": "pingqu",
+  "version": "1.0.0",
+  "description": "pingqu",
+  "author": "yuchonghua <yuchonghua@163.com>",
+  "private": true,
+  "dependencies": {
+    "css-loader": "^0.26.1",
+    "element-ui": "^1.1.1",
+    "node-sass": "^4.1.1",
+    "nuxt": "latest",
+    "sass-loader": "^4.1.1",
+    "style-loader": "^0.13.1",
+    "babel-plugin-component": "^0.6.0"
+  },
+  "scripts": {
+    "dev": "nuxt",
+    "build": "nuxt build",
+    "start": "nuxt start",
+    "generate": "nuxt generate"
+  },
+  "jshintConfig": {
+    "esversion": 6,
+    "undef": true,
+    "unused": true,
+    "node": true,
+    "predef": [
+      "module",
+      "require",
+      "console"
+    ]
+  },
+  "devDependencies": {
+  }
+}
