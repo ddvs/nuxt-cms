@@ -39,6 +39,11 @@ export default {
 		    ]
 		}
 	},
+	data(){
+		return{
+
+		};
+	},
 	methods: {
       	onSubmit() {
         	console.log('submit!');
