@@ -1,8 +1,8 @@
 {
-  "name": "pingqu",
+  "name": "{{ name }}",
   "version": "1.0.0",
-  "description": "pingqu",
-  "author": "yuchonghua <yuchonghua@163.com>",
+  "description": "{{ description }}",
+  "author": "{{ author }}",
   "private": true,
   "dependencies": {
     "css-loader": "^0.26.1",
