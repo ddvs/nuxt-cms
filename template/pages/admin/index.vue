@@ -1,8 +1,13 @@
+
+<style scoped>
+
+</style>
+
 <template>
 	<section>
 		<!--面包屑-->
 		<el-breadcrumb separator="/" class="breadcrumb-line">
-			<el-breadcrumb-item :to="{ path: '/' }">
+			<el-breadcrumb-item :to="{ path: '/admin/' }">
 				<i class="fa fa-home mr10"></i>首页
 			</el-breadcrumb-item>
 			<el-breadcrumb-item>活动管理</el-breadcrumb-item>
@@ -18,26 +23,4 @@
 	</section>
 </template>
 
-<script>
-export default {
-	layout:'admin',
-	head(){
-		return {
-			titleTemplate: '%s - 首页'
-		};
-	},
-	data ({ req }) {
-		return {
-			name: req ? 'server' : 'client'
-		}
-	},
-	methods: {
-      open() {
-        this.$message('这是一条消息提示');
-      }
-  	}
-}
-</script>
-<style scoped>
-
-</style>
+<script src="~assets/admin/js/index.js"></script>
