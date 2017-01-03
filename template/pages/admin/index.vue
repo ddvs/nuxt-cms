@@ -17,7 +17,7 @@
 		<!--主内容-->
 		<el-col :span="24" class="clearfix">
 			{{name}}
-			 <el-button :plain="true" @click="open">打开消息提示</el-button>
+			<el-button :plain="true" @click="open">打开消息提示</el-button>
 		</el-col>
 		<!--主内容-->
 	</section>

@@ -29,15 +29,14 @@ export default{
                 ]
             },
             checked: true
-        }
+        };
     },
     methods: {
         handleReset2() {
             this.$refs.ruleForm2.resetFields();
         },
-        handleSubmit2(ev) {
+        handleSubmit2() {
             var _this = this;
-            console.log(ev)
             this.$refs.ruleForm2.validate((valid) => {
                 if (valid) {
                     _this.$router.replace('/admin/');
@@ -48,4 +47,4 @@ export default{
            });
         }
     }
-}
+};

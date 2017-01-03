@@ -5,7 +5,7 @@
 
 <style>
 .bounce-enter-active {
-	animation: bounce-in .5s;
+	animation: bounce-in .3s;
 }
 
 .bounce-leave-active {
@@ -39,8 +39,11 @@
 
 <template>
 	<div>
-		<!-- <nuxt v-if="$router.currentRoute.path == '/admin/login'"/> -->
-		<el-row class="panels">
+		<transition name="bounce">
+			<nuxt v-if="storeData.isLogin"/>
+		</transition>
+
+		<el-row class="panels" v-show="!storeData.isLogin&&!isloading">
 			<admin-header :isFullScreen="isFullScreen" @fullTodo="fullTodo"/>
 			<el-col :span="24" class="panel-center clearfix">
 				<admin-sidebar :isFullScreen="isFullScreen"/>
@@ -56,7 +59,10 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
 import ElementUI from 'element-ui';
+import { mapState } from 'vuex';
+
 Vue.use(ElementUI);
+
 //头部
 import AdminHeader from '~components/admin/common/header.vue';
 //侧边栏
@@ -75,17 +81,37 @@ export default {
 	},
 	data(){
 		return{
-			isFullScreen:false
+			isFullScreen:false,
+			isloading:true
 		};
 	},
 	methods: {
       	fullTodo() {
         	this.isFullScreen = !this.isFullScreen;
       	},
+		changePage(){
+			let flag = this.$route.path === '/admin/login';
+			this.$store.commit('setLogin',flag);
+		}
     },
 	components: {
 		AdminHeader,
 		AdminSidebar
+	},
+	computed:mapState({
+		storeData : state => state.admin
+    }),
+	watch:{
+		'$route.path':{
+			handler:'changePage',
+			deep:true
+		}
+	},
+	created(){
+		this.changePage();
+		setTimeout(() => {
+			this.isloading = false;
+		},50);
 	}
 };
 </script>
