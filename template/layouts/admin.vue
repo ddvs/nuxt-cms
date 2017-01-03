@@ -1,19 +1,16 @@
 <style src="element-ui/lib/theme-default/index.css" lang="css"></style>
-<style src="~assets/admin/css/common/bootstrap/css/bootstrap.min.css"></style>
-<style src="~assets/admin/css/common/font-awesome/css/font-awesome.min.css"></style>
-<style src="~assets/admin/css/common/base.css"></style>
-
-<style scoped>
-
-</style>
+<style src="~assets/admin/css/common/bootstrap/css/bootstrap.min.css" lang="css"></style>
+<style src="~assets/admin/css/common/font-awesome/css/font-awesome.min.css" lang="css"></style>
+<style src="~assets/admin/css/common/base.css" lang="css"></style>
 
 <template>
 	<div>
-		<el-row class="panels">
-			<admin-header/>
+		<nuxt v-if="$router.currentRoute.path == '/admin/login'"/>
+		<el-row class="panels" v-else>
+			<admin-header :isFullScreen="isFullScreen" @fullTodo="fullTodo"/>
 			<el-col :span="24" class="panel-center clearfix">
-				<admin-sidebar/>
-				<section class="panel-content">
+				<admin-sidebar :isFullScreen="isFullScreen"/>
+				<section class="panel-content" :class="{'active':isFullScreen}">
 					<nuxt/>
 				</section>
 			</el-col>
@@ -23,9 +20,12 @@
 
 <script>
 import Vue from 'vue';
+import Vuex from 'vuex';
 import ElementUI from 'element-ui';
 Vue.use(ElementUI);
+//头部
 import AdminHeader from '~components/admin/common/header.vue';
+//侧边栏
 import AdminSidebar from '~components/admin/common/sidebar.vue';
 
 export default {
@@ -41,33 +41,13 @@ export default {
 	},
 	data(){
 		return{
-
+			isFullScreen:false
 		};
 	},
 	methods: {
-      	onSubmit() {
-        	console.log('submit!');
+      	fullTodo() {
+        	this.isFullScreen = !this.isFullScreen;
       	},
-		handleopen(){
-			//console.log('handleopen');
-		},
-		handleclose(){
-			//console.log('handleclose');
-		},
-        handleselect:function(a,b){
-        },
-		//退出登录
-		logout:function(){
-			var _this=this;
-			this.$confirm('确认退出吗?', '提示', {
-				type: 'warning'
-			}).then(() => {
-				_this.$router.replace('/login');
-			}).catch(() => {
-
-			});
-
-		}
     },
 	components: {
 		AdminHeader,
