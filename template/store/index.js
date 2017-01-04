@@ -1,7 +1,7 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
 
-import adminStore from './admin.js';
+import adminStore from './layouts/admin.js';
 
 Vue.use(Vuex);
 
