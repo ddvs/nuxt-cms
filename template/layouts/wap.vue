@@ -5,6 +5,10 @@
 </template>
 
 <script>
+import Vue from 'vue';
+import Mint from 'mint-ui';
+
+
 export default {
 	head(){
 		return {

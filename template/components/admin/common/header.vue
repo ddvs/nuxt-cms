@@ -1,7 +1,7 @@
 <template>
     <el-col :span="24" class="panel-top">
         <el-col :span="20" class="f24">
-            <div class="navbar-header pull-left">
+            <div class="navbar-header pull-left pl20">
                 <img src="~assets/admin/images/logo.png" alt="" class="logo round">
                 <span>屏趣<i style="color:#20a0ff">管理后台</i></span>
             </div>

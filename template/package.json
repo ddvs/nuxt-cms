@@ -1,17 +1,18 @@
 {
-  "name": "{{ name }}",
+  "name": "xx",
   "version": "1.0.0",
   "description": "{{ description }}",
   "author": "{{ author }}",
   "private": true,
   "dependencies": {
+    "babel-plugin-component": "^0.6.0",
     "css-loader": "^0.26.1",
     "element-ui": "^1.1.1",
+    "mint-ui": "^2.0.7",
     "node-sass": "^4.1.1",
     "nuxt": "latest",
     "sass-loader": "^4.1.1",
-    "style-loader": "^0.13.1",
-    "babel-plugin-component": "^0.6.0"
+    "style-loader": "^0.13.1"
   },
   "scripts": {
     "dev": "nuxt",
@@ -30,6 +31,5 @@
       "console"
     ]
   },
-  "devDependencies": {
-  }
+  "devDependencies": {}
 }
