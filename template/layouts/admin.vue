@@ -60,7 +60,6 @@
 
 <script>
 import Vue from 'vue';
-import Vuex from 'vuex';
 import ElementUI from 'element-ui';
 import { mapState } from 'vuex';
 
