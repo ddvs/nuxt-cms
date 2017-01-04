@@ -1,6 +1,9 @@
 <style src="element-ui/lib/theme-default/index.css" lang="css"></style>
 <style src="~assets/admin/css/common/bootstrap/css/bootstrap.min.css" lang="css"></style>
 <style src="~assets/admin/css/common/font-awesome/css/font-awesome.min.css" lang="css"></style>
+<style src="~assets/admin/css/common/minified/components.min.css" lang="css"></style>
+<style src="~assets/admin/css/common/minified/core.min.css" lang="css"></style>
+<style src="~assets/admin/css/common/minified/colors.min.css" lang="css"></style>
 <style src="~assets/admin/css/common/base.css" lang="css"></style>
 
 <style>

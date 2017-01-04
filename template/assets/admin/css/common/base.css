@@ -575,14 +575,17 @@ body {
     padding-left: 20px !important;
 }
 
-.panel-content .breadcrumb-line{
+.h37{
     height: 37px;
     line-height: 37px;
-    padding: 0px 20px;
-    background-color: #fcfcfc;
-    border-bottom: 1px solid #ddd;
-    margin: -20px -20px 20px;
-    border-top: 1px solid #ddd;
+}
+
+.mt-20{
+    margin-top: -20px !important;
+}
+
+.row-xl{
+    margin: 0 -20px;
 }
 
 .navbar-header-btn:hover{
