@@ -10,11 +10,82 @@
     -moz-box-sizing: border-box;
     box-sizing: border-box;
 }
-a:hover,a:active{
-    text-decoration: none;
+
+html {
+    font-family: "微软雅黑";
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+}
+
+body {
+    margin: 0;
+}
+
+ul, li {
+	list-style: none;
+}
+a, a:link, a:visited, a:hover, a:active {
+	text-decoration: none;
+	color: inherit;
 }
 input:focus, textarea:focus {
     outline: none;
+}
+img {
+	width: 100%;
+}
+textarea{
+    outline: none;
+    border: none;
+    width:100%;
+    background: #fff;
+    border-radius: 0px;
+    -o-border-radius: 0px;
+    -moz-border-radius: 0px;
+    -webkit-background: #f9f9f9;
+    appearance:button;
+    -moz-appearance:button; /* Firefox */
+    -webkit-appearance:button;/* Safari 和 Chrome */
+}
+select{
+    outline: none;
+    -webkit-appearance:none;
+    appearance:none;
+    border:none;
+    display:block;
+    width:100%;
+    background: transparent;
+    direction: rtl;
+    -webkit-box-sizing:border-box;
+    box-sizing:border-box;
+}
+a, button, input[type="text"], textarea {
+	-ms-touch-action: none !important;
+	-webkit-appearance: none;
+	-webkit-tap-highlight-color: transparent;
+}
+button {
+	outline: 0;
+	border: 0;
+}
+::-webkit-input-placeholder {
+	/* WebKit browsers */
+	color: #999;
+}
+
+:-moz-placeholder {
+	/* Mozilla Firefox 4 to 18 */
+	color: #999;
+}
+
+::-moz-placeholder {
+	/* Mozilla Firefox 19+ */
+	color: #999;
+}
+
+:-ms-input-placeholder {
+	/* Internet Explorer 10+ */
+	color: #888;
 }
 /*圆形*/
 .round {
@@ -446,15 +517,6 @@ input:focus, textarea:focus {
     color: #999;
 }
 
-html {
-    font-family: "微软雅黑";
-    -webkit-text-size-adjust: 100%;
-    -ms-text-size-adjust: 100%;
-}
-
-body {
-    margin: 0;
-}
 
 
 /*布局*/
