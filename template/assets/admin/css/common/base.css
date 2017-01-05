@@ -28,7 +28,6 @@ ul, li {
 }
 a, a:link, a:visited, a:hover, a:active {
 	text-decoration: none;
-	color: inherit;
 }
 input:focus, textarea:focus {
     outline: none;
