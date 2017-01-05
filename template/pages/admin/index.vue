@@ -21,7 +21,7 @@
 								默认文本输入
 							</label>
 							<div class="col-lg-10">
-								<input type="text" class="form-control">
+								<input type="text" class="form-control" placeholder="asdsadsad">
 							</div>
 						</div>
 						<div class="form-group">
