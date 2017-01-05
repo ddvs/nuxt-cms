@@ -51,7 +51,7 @@
 			<el-col :span="24" class="panel-center clearfix">
 				<admin-sidebar :isFullScreen="isFullScreen"/>
 				<section class="panel-content" :class="{'active':isFullScreen}">
-					<!--面包屑-->
+
 					<div class="page-header mb20">
 						<div class="page-header-content">
 							<div class="page-title">
@@ -68,8 +68,9 @@
 							<el-breadcrumb-item v-for="data in storeData.breadcrumb" :to="{path:data.path}">{{data.name}}</el-breadcrumb-item>
 						</el-breadcrumb>
 					</div>
-					<!--面包屑-->
-					<nuxt/>
+					<el-row class="content">
+						<nuxt/>
+					</el-row>
 				</section>
 			</el-col>
 		</el-row>
