@@ -1,9 +1,12 @@
 <template>
-	<section class="container">
-		<h1 class="title">
+	<section>
+		<h1 class="error-title">
 			{{ error.statusCode }}
 		</h1>
-		<h2 class="info">
+		<h2 class="info" v-if="error.statusCode === 404">
+			抱歉，页面被外星人劫走了~
+		</h2>
+		<h2 class="info" v-else>
 			{{ error.message }}
 		</h2>
 		<!-- <nuxt-link class="button" to="/" v-if="error.statusCode === 404">
@@ -29,12 +32,12 @@ export default {
 </script>
 
 <style scoped>
-.title{
+.error-title{
 	text-align: center;
 	color: #fff;
     font-size: 150px;
     line-height: 1;
-    margin-bottom: 20px;
+    margin: 100px 0 20px;
     font-weight: 300;
     text-stroke: 1px transparent;
     display: block;
