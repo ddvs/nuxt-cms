@@ -519,7 +519,7 @@ body {
     text-align: center;
 }
 
-.sidebar{
+.sidebars{
     height: 100%;
     overflow: auto;
     vertical-align: top;
@@ -529,7 +529,7 @@ body {
     position: relative;
 }
 
-.sidebar-main{
+.sidebars-main{
     z-index: 99;
     transition:all 0.3s;
     -moz-transition: all 0.3s;
@@ -537,7 +537,7 @@ body {
     -o-transition: all 0.3s;
 }
 
-.sidebar-main.active{
+.sidebars-main.active{
     transform: translate3d(-280px,0,0);
     -moz-transform: translate3d(-280px,0,0);
     -webkit-transform: translate3d(-280px,0,0);
@@ -588,7 +588,7 @@ body {
     min-width: 260px;
 }
 
-.sidebar .el-menu--dark .el-submenu .el-menu{
+.sidebars .el-menu--dark .el-submenu .el-menu{
     background-color:rgba(0,0,0,0.15) !important;
     -webkit-box-shadow: 0 1px 0 rgba(255,255,255,0.05) inset !important;
     box-shadow: 0 1px 0 rgba(255,255,255,0.05) inset !important;

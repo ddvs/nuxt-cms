@@ -10,7 +10,7 @@
 </style>
 
 <template>
-    <div class="sidebar sidebar-main pull-left" :class="{'active':isFullScreen}">
+    <div class="sidebars sidebars-main pull-left" :class="{'active':isFullScreen}">
         <el-row class="tac">
             <el-col :span="24">
                 <el-menu default-active="2" @open="handleOpen" @close="handleClose" theme="dark">

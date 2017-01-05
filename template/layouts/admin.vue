@@ -110,6 +110,8 @@ export default {
 		}
 	},
 	created(){
+
+		console.log(this.$isServer);
 		this.changePage();
 		setTimeout(() => {
 			this.isloading = false;
