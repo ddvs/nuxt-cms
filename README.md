@@ -1,4 +1,4 @@
-# Starter
+# ddvs/nuxt
 
 A [ddv](https://github.com/ddvjs/ddv) [Nuxt.js](https://github.com/nuxt/nuxt.js) starter project template without the distraction of a complicated development environment.
 
