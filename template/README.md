@@ -1,6 +1,6 @@
-# pingqu
+# ddvs/nuxt
 
-> pingqu
+> ddvs/nuxt
 
 ## Build Setup
 
