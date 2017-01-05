@@ -20,6 +20,7 @@ export default{
 		storeData : state => state.admin
     }),
 	mounted(){
+		this.$store.commit('setBreadcrumb',['任务管理','首页']);
 		//console.log('路由',this.$route.path);
 		console.log(this.storeData);
 	}

@@ -1,25 +1,7 @@
 
 <template>
 	<section>
-		<!--面包屑-->
-		<div class="page-header mb20">
-			<div class="page-header-content">
-				<div class="page-title">
-					<h4>
-						<i class="fa fa-arrow-circle-left position-left pointer"></i>
-						<span class="text-semibold">活动管理</span> - 首页
-					</h4>
-				</div>
-			</div>
-			<el-breadcrumb separator="/" class="breadcrumb-line pl20 pr20 h37">
-				<el-breadcrumb-item :to="{ path: '/admin/' }">
-					<i class="fa fa-home mr10"></i>首页
-				</el-breadcrumb-item>
-				<el-breadcrumb-item>活动管理</el-breadcrumb-item>
-				<el-breadcrumb-item>活动列表</el-breadcrumb-item>
-			</el-breadcrumb>
-		</div>
-		<!--面包屑-->
+		
 		<!--主内容-->
 		<el-row class="content">
 			<el-row class="panel panel-flat">

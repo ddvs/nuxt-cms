@@ -51,6 +51,24 @@
 			<el-col :span="24" class="panel-center clearfix">
 				<admin-sidebar :isFullScreen="isFullScreen"/>
 				<section class="panel-content" :class="{'active':isFullScreen}">
+					<!--面包屑-->
+					<div class="page-header mb20">
+						<div class="page-header-content">
+							<div class="page-title">
+								<h4>
+									<i class="fa fa-arrow-circle-left position-left pointer" @click="$router.go(-1)"></i>
+									<span class="text-semibold">{{ground}}</span>{{nowPage}}
+								</h4>
+							</div>
+						</div>
+						<el-breadcrumb separator="/" class="breadcrumb-line pl20 pr20 h37">
+							<el-breadcrumb-item :to="{ path: '/admin/' }">
+								<i class="fa fa-home mr10"></i>首页
+							</el-breadcrumb-item>
+							<el-breadcrumb-item v-for="data in storeData.breadcrumb" :to="{path:data.path}">{{data.name}}</el-breadcrumb-item>
+						</el-breadcrumb>
+					</div>
+					<!--面包屑-->
 					<nuxt/>
 				</section>
 			</el-col>
@@ -101,7 +119,27 @@ export default {
 		AdminSidebar
 	},
 	computed:mapState({
-		storeData : state => state.admin
+		storeData : state => state.admin,
+		breadcrumbTitle(){
+			return storeData.breadcrumb.slice(storeData.breadcrumb.length-2,storeData.breadcrumb.length);
+		},
+		ground(){
+			if(this.storeData.breadcrumb.length === 1){
+				let name = this.storeData.breadcrumb[0];
+				return name.name;
+			}else if(this.storeData.breadcrumb.length >= 2){
+				let name = this.storeData.breadcrumb[this.storeData.breadcrumb.length-2];
+				return name.name;
+			}
+			return ''
+		},
+		nowPage(){
+			if(this.storeData.breadcrumb.length >= 2){
+				let name = this.storeData.breadcrumb[this.storeData.breadcrumb.length-1];
+				return ` - ${name.name}`;
+			}
+			return ''
+		}
     }),
 	watch:{
 		'$route.path':{
@@ -110,7 +148,6 @@ export default {
 		}
 	},
 	created(){
-
 		console.log(this.$isServer);
 		this.changePage();
 		setTimeout(() => {
