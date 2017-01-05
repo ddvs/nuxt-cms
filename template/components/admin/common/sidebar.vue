@@ -19,12 +19,12 @@
                             <i class="el-icon-message"></i>
                             菜单
                         </template>
-                            <el-menu-item index="/admin/">
-                                首页
-                            </el-menu-item>
-                            <el-menu-item index="/admin/about">
-                                关于
-                            </el-menu-item>
+                        <el-menu-item index="/admin/">
+                            首页
+                        </el-menu-item>
+                        <el-menu-item index="/admin/about">
+                            关于
+                        </el-menu-item>
                     </el-submenu>
                 </el-menu>
             </el-col>
