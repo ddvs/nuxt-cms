@@ -7,10 +7,12 @@
   "dependencies": {
     "babel-plugin-component": "^0.6.0",
     "css-loader": "^0.26.1",
-    "element-ui": "^1.1.1",
-    "mint-ui": "^2.0.7",
+    "element-ui": "^1.1",
+    "mint-ui": "^2.1",
     "node-sass": "^4.1.1",
     "nuxt": "latest",
+    "postcss-bem": "^0.4.1",
+    "postcss-cssnext": "^2.9.0",
     "sass-loader": "^4.1.1",
     "style-loader": "^0.13.1"
   },

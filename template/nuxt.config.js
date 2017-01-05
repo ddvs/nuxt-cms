@@ -16,24 +16,33 @@ module.exports = {
   },
   css:[],
   build:{
-      loaders:[
-          {
-            test: /\.css$/,
-            loader: 'style-loader!css-loader'
-        },
-          {
-          test: /\.(eot|svg|ttf|woff|woff2)(\?\S*)?$/,
-          loader: 'file-loader'
-        },
+    loaders:[
+      {
+        test: /\.css$/,
+        loader: 'style-loader!css-loader?modules!postcss-loader'
+      },
         {
-          test: /\.(png|jpe?g|gif|svg)(\?\S*)?$/,
-          loader: 'file-loader',
-          query: {
-            name: '[name].[ext]?[hash]'
-          }
+        test: /\.(eot|svg|ttf|woff|woff2)(\?\S*)?$/,
+        loader: 'file-loader'
+      },
+      {
+        test: /\.(png|jpe?g|gif|svg)(\?\S*)?$/,
+        loader: 'file-loader',
+        query: {
+          name: '[name].[ext]?[hash]'
         }
-      ],
-      vendor: [/*'element-ui'*/]
+      }
+    ],
+    postcss: [
+      require('postcss-bem')({
+          defaultNamespace: undefined, // default namespace to use, none by default
+          style: 'suit' // suit or bem, suit by default
+      }),
+      require('postcss-cssnext')({
+        browsers: ['last 3 versions']
+      })
+    ],
+    vendor: [/*'element-ui'*/]
   },
   plugins:[/* '~plugins/element-ui' */],
   /*

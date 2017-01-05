@@ -1,3 +1,4 @@
+<style src="mint-ui/lib/style.css" lang="css"></style>
 <template>
 	<div>
 		<nuxt/>
@@ -7,6 +8,8 @@
 <script>
 import Vue from 'vue';
 import Mint from 'mint-ui';
+import { mapState } from 'vuex';
+Vue.use(Mint);
 
 
 export default {
