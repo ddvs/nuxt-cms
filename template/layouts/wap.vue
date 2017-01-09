@@ -1,4 +1,5 @@
 <style src="mint-ui/lib/style.css" lang="css"></style>
+<style src="~assets/wap/css/common/base.css"></style>
 <template>
 	<div>
 		<nuxt/>

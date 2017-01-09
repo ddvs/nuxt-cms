@@ -11,7 +11,7 @@
         </el-form-item>
         <el-checkbox v-model="checked" checked style="margin:0px 0px 35px 0px;">记住密码</el-checkbox>
         <el-form-item>
-            <el-button type="primary" class="col-xs-12" @click.native.prevent="handleSubmit2">登录</el-button>
+            <el-button type="primary" class="col-xs-12" @click.native.prevent="handleSubmit2" @keyup.enter="handleSubmit2">登录</el-button>
         </el-form-item>
     </el-form>
 </template>

@@ -53,7 +53,7 @@
 							<button type="button" class="btn-group-multiselect bg-success-300">asdsadd</button>
 							<br>
 							<br>
-							<button type="button" class="btn-group bg-teal-800">asdsadd</button>
+							<button type="button" class="btn btn-group bg-teal-800">asdsadd</button>
 
 							<nuxt-link tag="li" to="/foo">
 							  <a>/foo</a>
