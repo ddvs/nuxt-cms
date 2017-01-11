@@ -42,9 +42,9 @@ module.exports = {
         browsers: ['last 3 versions']
       })
     ],
-    vendor: [/*'element-ui'*/]
+    vendor: ['ddv-restful-api']
   },
-  plugins:[/* '~plugins/element-ui' */],
+  plugins:[ '~plugins/ddv-restful-api' ],
   /*
   ** Global CSS
   */

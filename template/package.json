@@ -7,6 +7,7 @@
   "dependencies": {
     "babel-plugin-component": "^0.6.0",
     "css-loader": "^0.26.1",
+    "ddv-restful-api": "0.0.3",
     "element-ui": "^1.1",
     "mint-ui": "^2.1",
     "node-sass": "^4.1.1",

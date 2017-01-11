@@ -1,4 +1,5 @@
-import { mapState } from 'vuex';
+import {mapState} from 'vuex';
+import {get} from 'ddv-restful-api';
 export default{
 	layout:'admin',
 	head(){
@@ -6,10 +7,14 @@ export default{
 			titleTemplate: '%s - 首页'
 		};
 	},
-	data ({ req }) {
-		return {
-			name: req ? 'server' : 'client'
-		};
+	data ({ req, res }) {
+		return get('/v1_0/pc/raiders/news/type',req,res).then(function(res){
+			res.name = req ? 'server' : 'client';
+			return res;
+		});
+		//return {
+		//	name: req ? 'server' : 'client'
+		//};
 	},
 	methods: {
       	open() {
@@ -24,5 +29,6 @@ export default{
 		//console.log('路由',this.$route.path);
 		console.log(this.storeData);
 		console.log(1111,this);
+		console.log(this.$data);
 	}
 };
