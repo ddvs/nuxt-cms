@@ -9,6 +9,7 @@
     "css-loader": "^0.26.1",
     "ddv-restful-api": "0.0.3",
     "element-ui": "^1.1",
+    "lodash": "^4.17.4",
     "mint-ui": "^2.1",
     "node-sass": "^4.1.1",
     "nuxt": "latest",

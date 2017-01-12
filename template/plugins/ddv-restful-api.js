@@ -1,6 +1,7 @@
+//import Vue from 'vue';
 import api from 'ddv-restful-api';
 //设置默认请求域名
-api.setBaseUrl('http://api.abctest.com');
+api.setBaseUrl('http://api.testabc.com');
 //自定义头前缀
 api.setHeadersPrefix('x-hz-');
 //是否长期会话
@@ -9,3 +10,5 @@ api.setLongStorage(false);
 api.setSessionInitTrySum(3);
 //设置初始化session的path，默认/session/init
 api.setSessionInitPath('/session/init');
+
+//Vue.prototype.api = api;

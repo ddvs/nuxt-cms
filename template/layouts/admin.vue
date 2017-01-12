@@ -149,6 +149,7 @@ export default {
 		}
 	},
 	created(){
+
 		this.changePage();
 		setTimeout(() => {
 			this.isloading = false;
