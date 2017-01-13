@@ -263,7 +263,7 @@ export default{
     },
     //移除所有值为假的对象，返回对象本身
     compactObj(obj){
-        for(let v in obj){
+        for(var v in obj){
             if(obj.hasOwnProperty(v)){
                 if(!obj[v]){
                     delete obj[v];
