@@ -6,6 +6,7 @@
 			<el-row class="panel-heading">
 				<h5 class="panel-title">
 					基本形式输入
+					{{msg|d('xx')}}
 				</h5>
 			</el-row>
 

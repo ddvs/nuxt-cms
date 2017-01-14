@@ -43,9 +43,9 @@ module.exports = {
         browsers: ['last 3 versions']
       })
     ],
-    vendor: ['ddv-restful-api']
+    vendor: ['ddv-restful-api', 'ddv-util']
   },
-  plugins:[ '~plugins/ddv-restful-api' ],
+  plugins:[ '~plugins/ddv-restful-api', '~plugins/ddv-util' ],
   /*
   ** Global CSS
   */

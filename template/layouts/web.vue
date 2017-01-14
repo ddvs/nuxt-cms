@@ -5,6 +5,9 @@
 </template>
 
 <script>
+import Vue from 'Vue';
+import d from 'ddv-util';
+Vue.filter('d',d);
 	export default {
 		head(){
 			return{

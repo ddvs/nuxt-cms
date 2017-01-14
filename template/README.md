@@ -1,6 +1,6 @@
-# ddvs/nuxt
+# {{ name }}
 
-> ddvs/nuxt
+> {{ description }}
 
 ## Build Setup
 

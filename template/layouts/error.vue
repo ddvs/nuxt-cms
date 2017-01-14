@@ -16,6 +16,9 @@
 </template>
 
 <script>
+import Vue from 'vue';
+import d from 'ddv-util';
+Vue.filter('d',d);
 export default {
 	props: ['error'],
 	head(){

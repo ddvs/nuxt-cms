@@ -7,7 +7,8 @@
   "dependencies": {
     "babel-plugin-component": "^0.6.0",
     "css-loader": "^0.26.1",
-    "ddv-restful-api": "0.0.3",
+    "ddv-restful-api": "^0.0.3",
+    "ddv-util": "^0.0.4",
     "element-ui": "^1.1",
     "lodash": "^4.17.4",
     "mint-ui": "^2.1",
@@ -30,6 +31,7 @@
     "unused": true,
     "node": true,
     "predef": [
+      "d",
       "module",
       "require",
       "console"

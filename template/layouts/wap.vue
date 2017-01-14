@@ -10,6 +10,8 @@
 import Vue from 'vue';
 import Mint from 'mint-ui';
 import { mapState } from 'vuex';
+import d from 'ddv-util';
+Vue.filter('d',d);
 Vue.use(Mint);
 
 

@@ -81,6 +81,8 @@
 import Vue from 'vue';
 import ElementUI from 'element-ui';
 import { mapState } from 'vuex';
+import d from 'ddv-util';
+Vue.filter('d',d);
 
 Vue.use(ElementUI);
 
