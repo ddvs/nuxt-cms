@@ -29,6 +29,7 @@ export default{
 		storeData : state => state.admin
     }),
 	mounted(){
+		console.log(d.util.compactArray([1,'',2]));
 		console.log(_.chunk(['a', 'b', 'c', 'd'], 3));
 		this.$store.commit('setBreadcrumb',['任务管理','首页']);
 		//console.log('路由',this.$route.path);
