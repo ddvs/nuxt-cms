@@ -12,10 +12,7 @@ util.extend({
     get:api.get,
     post:api.post,
     put:api.put,
-    del:api.del,
-    xx:function(val){
-        return '11111....'+val
-    }
+    del:api.del
 });
 //delete兼容性问题
 util['delete'] = api['delete'];
