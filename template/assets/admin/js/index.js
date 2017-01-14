@@ -17,7 +17,7 @@ export default{
 		console.log('6666',d);
 		return {
 			name: req ? 'server' : 'client',
-			msg:'aaa'
+			msg:'1484379264'
 		};
 	},
 	methods: {
