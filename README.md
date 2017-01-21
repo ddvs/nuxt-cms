@@ -1,5 +1,7 @@
 # ddvs/nuxt
 
+[![Join the chat at https://gitter.im/ddvs/nuxt-cms](https://badges.gitter.im/ddvs/nuxt-cms.svg)](https://gitter.im/ddvs/nuxt-cms?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 A [ddv](https://github.com/ddvjs/ddv) [Nuxt.js](https://github.com/nuxt/nuxt.js) starter project template without the distraction of a complicated development environment.
 
 Live demo: https://starter.nuxtjs.org
