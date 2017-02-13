@@ -11,7 +11,7 @@ Live demo: https://starter.nuxtjs.org
 This is a project template for [vue-cli](https://github.com/vuejs/vue-cli).
 
 ``` bash
-$ vue init ddvs/nuxt my-project  
+$ vue init ddvs/nuxt-cms my-project  
 $ cd my-project                     
 # install dependencies
 $ npm install # Or yarn install
