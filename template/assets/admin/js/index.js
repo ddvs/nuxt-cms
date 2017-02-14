@@ -9,16 +9,16 @@ export default{
       titleTemplate: '%s - 首页'
     }
   },
-  data ({ req, res }) {
-    return api.data(() => {
-      return api.get('/v1_0/xxxx', req, res).then(function (res) {
-	      res.name = req ? 'server' : 'client'
-	      return res
-	    }).catch(function (e) {
-	      console.log(e)
-	    })
-    })
-  },
+  // data ({ req, res }) {
+  //   return api.data(() => {
+  //     return api.get('/v1_0/xxxx', req, res).then(function (res) {
+	 //      res.name = req ? 'server' : 'client'
+	 //      return res
+	 //    }).catch(function (e) {
+	 //      console.log(e)
+	 //    })
+  //   })
+  // },
   methods: {
   	open () {
     	this.$message('这是一条消息提示')
