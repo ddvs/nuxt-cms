@@ -56,7 +56,8 @@
 						<div class="page-header-content">
 							<div class="page-title">
 								<h4>
-									<i class="fa fa-arrow-circle-left position-left pointer" @click="$router.go(-1)"></i>
+									<i class="fa fa-arrow-circle-left position-left pointer" @click="$router.go(-1)">
+									</i>
 									<span class="text-semibold">{{ground}}</span>{{nowPage}}
 								</h4>
 							</div>
@@ -78,13 +79,37 @@
 </template>
 
 <script>
+
 import Vue from 'vue';
 import ElementUI from 'element-ui';
 import { mapState } from 'vuex';
 import d from 'ddv-util';
-Vue.filter('d',d);
 
+Vue.filter('d',d);
 Vue.use(ElementUI);
+
+if (process.BROWSER_BUILD) {
+  d.api.onDataClientError(function onDataClientError(e,context) {
+  	var toPath
+    if (e.error_id === 'NO_LOGIN'&&context) {
+    	if(context.$router && context.$route){
+    		toPath = '/'+ d._getTypeByRoute(context.$route) + '/login'
+      	  context.$router.push(toPath)
+    	}else if( context.redirect){
+      	   toPath = '/' + d._getTypeByContext(context) + '/login'
+      	  context.redirect('302', toPath)
+    	}else{
+      		throw e
+    	}
+    } else {
+      ElementUI.MessageBox({
+				title:'警告',
+				message:e.message,
+				type:'error'
+			})
+    }
+  })
+}
 
 //头部
 import AdminHeader from '~components/admin/common/header.vue';
@@ -151,7 +176,6 @@ export default {
 		}
 	},
 	created(){
-
 		this.changePage();
 		setTimeout(() => {
 			this.isloading = false;

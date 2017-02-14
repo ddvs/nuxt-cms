@@ -1,11 +1,32 @@
-import api from 'ddv-restful-api';
-//设置默认请求域名
-api.setBaseUrl('http://api.testabc.com');
-//自定义头前缀
-api.setHeadersPrefix('x-hz-');
-//是否长期会话
-api.setLongStorage(false);
-//设置会话初始化最大自动尝试次数，默认3次
-api.setSessionInitTrySum(3);
-//设置初始化session的path，默认/session/init
-api.setSessionInitPath('/session/init');
+import api from 'ddv-restful-api'
+import util from 'ddv-util'
+
+util._getTypeByContext = function (context) {
+  var path = (context && context.route && context.route.path) || ''
+  var pathArr = path.split('/')
+  var type = pathArr[1] || 'pc'
+  return type
+}
+util._getTypeByRoute = function (route) {
+  var path = (route && route.path) || ''
+  var pathArr = path.split('/')
+  var type = pathArr[1] || 'pc'
+  return type
+}
+if (process.SERVER_BUILD) {
+  // 服务端错误处理
+  // 切记，这里是服务端，只能跳转，不用想太多弹框什么的
+  // 所以，仅仅处理登录这种逻辑就好
+  api.onDataServerError(function onDataServerError (e, context) {
+    if (e.error_id === 'NO_LOGIN' && context.redirect) {
+      var toPath = '/' + util._getTypeByContext(context) + '/login'
+      context.redirect('302', toPath)
+    } else {
+      throw e
+    }
+  })
+}
+// 客户端需要配置一些，服务器已经在启动的时候配置了
+if (process.BROWSER_BUILD) {
+  require('../api.config')
+}

@@ -3,6 +3,7 @@ const worker = require('ddv-worker')
 const http = require('http')
 const Nuxt = require('nuxt')
 const util = require('ddv-util')
+require('./api.config')
 util.globalInit('d', null, true)
 
 worker.server = http.createServer(app)
@@ -13,6 +14,8 @@ worker.DEBUG = config.dev = !(process.env.NODE_ENV === 'production')
 
 // Init Nuxt.js
 const nuxt = new Nuxt(config)
+// Import API Routes
+app.use(require('./middleware'))
 // 使用nuxt插件
 app.use(nuxt.render)
 

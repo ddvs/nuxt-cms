@@ -1,5 +1,5 @@
 {
-  "name": "test",
+  "name": "{{ name }}",
   "version": "1.0.0",
   "description": "{{ description }}",
   "author": "{{ author }}",
@@ -23,6 +23,7 @@
     "express": "^4.14.0",
     "lodash": "^4.17.4",
     "mint-ui": "^2.1",
+    "node-sass": "~4.5.0",
     "nuxt": "latest",
     "postcss-bem": "^0.4.1",
     "postcss-cssnext": "^2.9.0",

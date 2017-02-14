@@ -9,9 +9,6 @@
 		<h2 class="info" v-else>
 			{{ error.message }}
 		</h2>
-		<!-- <nuxt-link class="button" to="/" v-if="error.statusCode === 404">
-			Homepage
-		</nuxt-link> -->
 	</section>
 </template>
 
@@ -19,6 +16,7 @@
 import Vue from 'vue';
 import d from 'ddv-util';
 Vue.filter('d',d);
+
 export default {
 	props: ['error'],
 	head(){

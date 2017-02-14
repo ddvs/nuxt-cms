@@ -14,6 +14,24 @@ import d from 'ddv-util';
 Vue.filter('d',d);
 Vue.use(Mint);
 
+if (process.BROWSER_BUILD) {
+  d.api.onDataClientError(function onDataClientError(e,context) {
+  	var toPath
+    if (e.error_id === 'NO_LOGIN'&&context) {
+    	if(context.$router && context.$route){
+    		toPath = '/'+ d._getTypeByRoute(context.$route) + '/login'
+      	context.$router.push(toPath)
+    	}else if( context.redirect){
+      	toPath = '/' + d._getTypeByContext(context) + '/login'
+        context.redirect('302', toPath)
+    	}else{
+      	throw e
+    	}
+    } else {
+    	Mint.MessageBox('错误', e.message);
+    }
+  })
+}
 
 export default {
 	head(){
