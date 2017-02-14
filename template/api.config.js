@@ -1,6 +1,6 @@
 const api = require('ddv-restful-api')
 // 设置默认请求域名
-api.setBaseUrl('http://api.salevideo.ping-qu.com')
+api.setBaseUrl('http://api.test.com')
 // 自定义头前缀
 api.setHeadersPrefix('x-hz-')
 // 是否长期会话

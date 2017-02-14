@@ -6,7 +6,7 @@ router.use('/wap', function (req, res, next) {
   var ajaxData = {
     callback: req.protocol + '://' + req.hostname + req.originalUrl
   }
-  api.get('v2_0/api/login/wechat_login', req, res).send(ajaxData).then(({state, data}) => {
+  api.get('v2_0/api.text', req, res).send(ajaxData).then(({state, data}) => {
     if (state) {
       /* eslint-disable-line no-is_login */
       if (!data.is_login && data.redirect) {
