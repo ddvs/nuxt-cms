@@ -149,7 +149,7 @@ export default {
 	computed:mapState({
 		storeData : state => state.admin,
 		breadcrumbTitle(){
-			return storeData.breadcrumb.slice(storeData.breadcrumb.length-2,storeData.breadcrumb.length);
+			return this.storeData.breadcrumb.slice(this.storeData.breadcrumb.length-2,this.storeData.breadcrumb.length);
 		},
 		ground(){
 			if(this.storeData.breadcrumb.length === 1){
