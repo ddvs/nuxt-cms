@@ -4,7 +4,7 @@ const http = require('http')
 const Nuxt = require('nuxt')
 const util = require('ddv-util')
 require('./api.config')
-util.globalInit('d', null, true)
+util.globalInit('d', global)
 
 worker.server = http.createServer(app)
 // Import and Set Nuxt.js options
