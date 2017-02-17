@@ -1,9 +1,9 @@
 <style src="element-ui/lib/theme-default/index.css" lang="css"></style>
 <style src="~assets/admin/css/common/bootstrap/css/bootstrap.css" lang="css"></style>
 <style src="~assets/admin/css/common/font-awesome/css/font-awesome.min.css" lang="css"></style>
-<style src="~assets/admin/css/common/minified/core.min.css" lang="css"></style>
-<style src="~assets/admin/css/common/minified/components.min.css" lang="css"></style>
-<style src="~assets/admin/css/common/minified/colors.min.css" lang="css"></style>
+<style src="~assets/admin/css/common/core.scss" lang="scss"></style>
+<style src="~assets/admin/css/common/components.scss" lang="scss"></style>
+<style src="~assets/admin/css/common/colors.css" lang="css"></style>
 <style src="~assets/admin/css/common/base.css" lang="css"></style>
 
 <style>
@@ -41,7 +41,7 @@
 </style>
 
 <template>
-	<div>
+	<div class="ddv-management-system">
 		<transition name="bounce">
 			<nuxt v-if="storeData.isLogin"/>
 		</transition>
@@ -134,14 +134,14 @@ export default {
 		};
 	},
 	methods: {
-      	fullTodo() {
-        	this.isFullScreen = !this.isFullScreen;
-      	},
+  	fullTodo() {
+    	this.isFullScreen = !this.isFullScreen;
+  	},
 		changePage(){
 			let flag = this.$route.path === '/admin/login';
 			this.$store.commit('setLogin',flag);
 		}
-    },
+  },
 	components: {
 		AdminHeader,
 		AdminSidebar
@@ -168,7 +168,7 @@ export default {
 			}
 			return ''
 		}
-    }),
+  }),
 	watch:{
 		'$route.path':{
 			handler:'changePage',
