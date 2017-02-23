@@ -8,8 +8,7 @@ module.exports = {
     meta: [
       { charset: 'utf-8' },
       {'http-equiv': 'content-type', 'content': 'text/html;charset=utf-8'},
-      {'http-equiv': 'X-UA-Compatible', 'content': 'IE=edge,chrome=1'},
-      {'http-equiv': 'Access-Control-Allow-Origin', 'content': '*'}
+      {'http-equiv': 'X-UA-Compatible', 'content': 'IE=edge,chrome=1'}
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: 'favicon.ico' }
