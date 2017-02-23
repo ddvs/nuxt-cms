@@ -1,8 +1,8 @@
 <style src="element-ui/lib/theme-default/index.css" lang="css"></style>
 <style src="~assets/admin/css/common/bootstrap/css/bootstrap.css" lang="css"></style>
 <style src="~assets/admin/css/common/font-awesome/css/font-awesome.min.css" lang="css"></style>
-<style src="~assets/admin/css/common/core.scss" lang="scss"></style>
-<style src="~assets/admin/css/common/components.scss" lang="scss"></style>
+<style src="~assets/admin/scss/common/core.scss" lang="scss"></style>
+<style src="~assets/admin/scss/common/components.scss" lang="scss"></style>
 <style src="~assets/admin/css/common/colors.css" lang="css"></style>
 <style src="~assets/admin/css/common/base.css" lang="css"></style>
 
