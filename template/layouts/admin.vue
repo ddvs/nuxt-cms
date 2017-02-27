@@ -153,18 +153,18 @@ export default {
 		},
 		ground(){
 			if(this.storeData.breadcrumb.length === 1){
-				let name = this.storeData.breadcrumb[0];
-				return name.name;
+				let obj = this.storeData.breadcrumb[0];
+				return obj.name;
 			}else if(this.storeData.breadcrumb.length >= 2){
-				let name = this.storeData.breadcrumb[this.storeData.breadcrumb.length-2];
-				return name.name;
+				let obj = this.storeData.breadcrumb[this.storeData.breadcrumb.length-2];
+				return obj.name;
 			}
 			return ''
 		},
 		nowPage(){
 			if(this.storeData.breadcrumb.length >= 2){
-				let name = this.storeData.breadcrumb[this.storeData.breadcrumb.length-1];
-				return ` - ${name.name}`;
+				let obj = this.storeData.breadcrumb[this.storeData.breadcrumb.length-1];
+				return ` - ${obj.name}`;
 			}
 			return ''
 		}
