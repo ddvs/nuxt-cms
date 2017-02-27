@@ -1,4 +1,4 @@
-import wx from '~plugins/jweixin-1.0.0'
+import wx from '~plugins/jweixin-1.0.0.js'
 
 export default function ({ store, redirect, route}) {
   return
