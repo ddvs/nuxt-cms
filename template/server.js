@@ -14,8 +14,6 @@ worker.DEBUG = config.dev = !(process.env.NODE_ENV === 'production')
 
 // Init Nuxt.js
 const nuxt = new Nuxt(config)
-// Import API Routes
-app.use(require('./middleware'))
 // 使用nuxt插件
 app.use(nuxt.render)
 
