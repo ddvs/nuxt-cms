@@ -34,9 +34,9 @@ if (process.BROWSER_BUILD) {
 }
 
 export default {
+	middleware:'wechatConfig',
 	head(){
 		return {
-			middleware:'wechatConfig',
 			title:'屏趣',
 		    meta:[
 		        {'charset': 'utf-8' },
