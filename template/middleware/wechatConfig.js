@@ -4,7 +4,7 @@ export default function ({ store, redirect, route}) {
   // 微信处理中间件
   d.api.get('v2_0/wechat/xxx').send({'url': 'url'})
   .then(res => {
-    redirect(res.data.url)
+    return redirect(res.data.url)
   })
   .then(() => {
     return Promise.resolve().then(() => {

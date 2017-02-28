@@ -1,14 +1,14 @@
-import Vue from 'vue';
-import Vuex from 'vuex';
+import Vue from 'vue'
+import Vuex from 'vuex'
 
-import adminStore from './layouts/admin.js';
+import adminStore from './layouts/admin.js'
 
-Vue.use(Vuex);
+Vue.use(Vuex)
 
 const store = new Vuex.Store({
-    modules:{
-        admin:adminStore
-    }
-});
+  modules: {
+    admin: adminStore
+  }
+})
 
-export default store;
+export default store

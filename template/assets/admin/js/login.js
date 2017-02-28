@@ -1,5 +1,8 @@
 export default{
   layout: 'admin',
+  fetch ({ store, params }) {
+    store.commit('setLogin', false)
+  },
   head () {
     return {
       titleTemplate: '%s - 登录'

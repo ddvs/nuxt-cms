@@ -117,6 +117,7 @@ import AdminHeader from '~components/admin/common/header.vue';
 import AdminSidebar from '~components/admin/common/sidebar.vue';
 
 export default {
+	middleware:'adminCheckLogin',
 	head(){
 		return {
 			title:'屏趣管理后台',
