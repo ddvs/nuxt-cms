@@ -4,7 +4,7 @@
 			{{ error.statusCode }}
 		</h1>
 		<h2 class="info" v-if="error.statusCode === 404">
-			抱歉，页面被外星人劫走了~
+			抱歉，页面被外星人劫走了~~
 		</h2>
 		<h2 class="info" v-else>
 			{{ error.message }}
