@@ -1,8 +1,5 @@
 export default{
   layout: 'admin',
-  fetch ({ store, params }) {
-    store.commit('setLogin', false)
-  },
   head () {
     return {
       titleTemplate: '%s - 登录'
@@ -42,6 +39,7 @@ export default{
       var _this = this
       this.$refs.ruleForm2.validate((valid) => {
         if (valid) {
+          this.$store.commit('setLogin', true)
           _this.$router.replace('/admin/')
         } else {
           console.log('error submit!!')
