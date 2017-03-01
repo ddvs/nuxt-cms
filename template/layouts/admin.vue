@@ -6,6 +6,168 @@
 <style src="~assets/admin/css/common/colors.css" lang="css"></style>
 <style src="~assets/admin/css/common/base.css" lang="css"></style>
 
+<style lang="scss">
+	.ddv-management-system{
+		.fade-enter-active,
+		.fade-leave-active {
+		    transition: opacity .5s
+		}
+
+		.fade-enter,
+		.fade-leave-active {
+		    opacity: 0
+		}
+
+		.panels {
+		    position: absolute;
+		    top: 0px;
+		    bottom: 0px;
+		    width: 100%;
+		}
+
+		.panel-top {
+		    height: 60px;
+		    line-height: 60px;
+		    background-color: #37474f;
+		    border-color: #37474f;
+		    color: #c0ccda;
+		}
+
+		.panel-center {
+		    background: #37474f;
+		    position: absolute;
+		    top: 60px;
+		    bottom: 0px;
+		    overflow: hidden;
+		}
+
+		.logout {
+		    background-size: contain;
+		    width: 20px;
+		    height: 20px;
+		    float: left;
+		}
+
+		.pointer{
+		    cursor: pointer;
+		}
+
+		.logo {
+		    width: 40px;
+		    float: left;
+		    margin: 10px 10px 10px 18px;
+		}
+
+		.tip-logout {
+		    padding-right: 20px;
+		}
+
+		.tip-logout i {
+		    cursor: pointer;
+		}
+
+		.admin {
+		    color: #c0ccda;
+		    text-align: center;
+		}
+
+		.sidebars{
+		    height: 100%;
+		    overflow: auto;
+		    vertical-align: top;
+		    width: 260px;
+		    background-color: #263238;
+		    color: #fff;
+		    position: relative;
+		}
+
+		.sidebars-main{
+		    z-index: 99;
+		    transition:all 0.3s;
+		    -moz-transition: all 0.3s;
+		    -webkit-transition: all 0.3s;
+		    -o-transition: all 0.3s;
+		}
+
+		.sidebars-main.active{
+		    transform: translate3d(-280px,0,0);
+		    -moz-transform: translate3d(-280px,0,0);
+		    -webkit-transform: translate3d(-280px,0,0);
+		    -o-transform: translate3d(-280px,0,0);
+		    opacity: 0;
+		    -ms-opacity:0;
+		}
+
+		.panel-content{
+		    background: #f1f2f7;
+		    position: absolute;
+		    right: 0px;
+		    top: 0px;
+		    bottom: 0px;
+		    left: 0px;
+		    overflow-y: auto;
+		    overflow-x: hidden;
+		    /*padding: 20px;*/
+		    padding-left: 260px;
+		    transition:all 0.3s;
+		    -moz-transition: all 0.3s;
+		    -webkit-transition: all 0.3s;
+		    -o-transition: all 0.3s;
+		}
+
+		.panel-content.active{
+		    padding-left: 0px !important;
+		}
+
+		.h37{
+		    height: 37px;
+		    line-height: 37px;
+		}
+
+		.mt-20{
+		    margin-top: -20px !important;
+		}
+
+		.row-xl{
+		    margin: 0 -20px;
+		}
+
+		.navbar-header-btn:hover{
+		    background-color: #324148;
+		}
+
+		.navbar-header{
+		    min-width: 260px;
+		}
+
+		.sidebars .el-menu--dark .el-submenu .el-menu{
+		    background-color:rgba(0,0,0,0.15) !important;
+		    -webkit-box-shadow: 0 1px 0 rgba(255,255,255,0.05) inset !important;
+		    box-shadow: 0 1px 0 rgba(255,255,255,0.05) inset !important;
+		}
+
+		::-webkit-scrollbar {
+			width: 8px;
+		}
+		::-webkit-scrollbar-track {
+			background-color: #fff;
+		}
+
+		::-webkit-scrollbar-thumb {
+			background-color: rgba(0, 0, 0, 0.2);
+		    border-radius: 4px;
+		}
+
+		::-webkit-scrollbar-button {
+			background-color: #7c2929;
+		}
+
+		::-webkit-scrollbar-corner {
+			background-color: black;
+		}
+	}
+</style>
+
 <style>
 .bounce-enter-active {
 	animation: bounce-in .3s;
@@ -43,10 +205,10 @@
 <template>
 	<div class="ddv-management-system">
 		<transition name="bounce">
-			<nuxt v-if="storeData.isLogin"/>
+			<nuxt v-if="!storeData.isLogin"/>
 		</transition>
 
-		<el-row class="panels" v-show="!storeData.isLogin&&!isloading">
+		<el-row class="panels" v-show="storeData.isLogin&&!isloading">
 			<admin-header :isFullScreen="isFullScreen" @fullTodo="fullTodo"/>
 			<el-col :span="24" class="panel-center clearfix">
 				<admin-sidebar :isFullScreen="isFullScreen"/>
@@ -139,7 +301,7 @@ export default {
     	this.isFullScreen = !this.isFullScreen;
   	},
 		changePage(){
-			let flag = this.$route.path === '/admin/login';
+			let flag = this.$route.path !== '/admin/login';
 			this.$store.commit('setLogin',flag);
 		}
   },
@@ -177,10 +339,9 @@ export default {
 		}
 	},
 	created(){
-		this.changePage();
 		setTimeout(() => {
 			this.isloading = false;
-		},50);
+		},500);
 	}
 };
 </script>
