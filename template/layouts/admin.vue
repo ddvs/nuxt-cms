@@ -208,7 +208,7 @@
 			<nuxt v-if="!storeData.isLogin"/>
 		</transition>
 
-		<el-row class="panels" v-show="storeData.isLogin&&!isloading">
+		<el-row class="panels" v-if="storeData.isLogin&&!isloading">
 			<admin-header :isFullScreen="isFullScreen" @fullTodo="fullTodo"/>
 			<el-col :span="24" class="panel-center clearfix">
 				<admin-sidebar :isFullScreen="isFullScreen"/>
@@ -341,7 +341,7 @@ export default {
 	created(){
 		setTimeout(() => {
 			this.isloading = false;
-		},500);
+		},50);
 	}
 };
 </script>
