@@ -232,7 +232,7 @@
 						</el-breadcrumb>
 					</div>
 					<el-row class="content">
-						<nuxt/>
+						<nuxt style="display:none"/>
 					</el-row>
 				</section>
 			</el-col>
