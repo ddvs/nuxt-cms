@@ -1,7 +1,7 @@
 <template>
   <div contenteditable="true"
-         v-html="innerText"
-         @input="changeText"></div>
+    v-html="innerText"
+    @input="changeText"></div>
 </template>
 
 <script>
