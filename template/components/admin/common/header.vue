@@ -5,6 +5,7 @@
         <img src="~assets/admin/images/logo.png" alt="" class="logo round">
         <span>屏趣<i style="color:#20a0ff">管理后台</i></span>
       </div>
+
       <div class="pull-left pl20 pr20 pointer f20 navbar-header-btn" @click="fullScreens">
         <i class="el-icon-menu"></i>
       </div>
@@ -22,8 +23,6 @@
 
 <script>
 export default{
-  //接收来自父组件的数据
-  props:['isFullScreen'],
   data(){
     return{
       isShowHeader:false
@@ -31,21 +30,22 @@ export default{
   },
   methods:{
     //退出登录
-    logout:function(){
-    	var _this = this;
-    	this.$confirm('确认退出吗?', '提示', {
-    		type: 'warning'
-    	}).then(() => {
-    		_this.$router.replace('/admin/login')
-    	}).catch(() => {})
-    },
+		logout:function(){
+			var _this = this;
+			this.$confirm('确认退出吗?', '提示', {
+				type: 'warning'
+			}).then(() => {
+				_this.$router.replace('/admin/login')
+			}).catch(() => {})
+		},
     fullScreens(){
       //触发当前实例上的事件
       this.$emit('fullTodo')
     }
   },
   mounted(){
-    if (process.BROWSER_BUILD) {
+    //临时解决‘el-tooltip’bug
+    if(process.BROWSER_BUILD){
       this.isShowHeader = true
     }
   }
