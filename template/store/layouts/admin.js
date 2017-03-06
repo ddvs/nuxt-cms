@@ -13,7 +13,7 @@ const store = {
         state.isLogin = !state.isLogin
       }
     },
-        // 修改面包屑
+    // 修改面包屑
     setBreadcrumb (state, array) {
       if (!Array.isArray(array)) return
 

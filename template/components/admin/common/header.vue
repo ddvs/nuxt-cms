@@ -9,14 +9,14 @@
         <i class="el-icon-menu"></i>
       </div>
     </el-col>
-      <el-col :span="4">
-        <div class="clearfix pull-right pointer" @click="logout">
-          管理员
-          <el-tooltip class="item tip-logout pl10" effect="dark" content="退出" placement="bottom">
-            <i class="fa fa-sign-out" aria-hidden="true"></i>
-          </el-tooltip>
-        </div>
-      </el-col>
+    <el-col :span="4">
+      <div class="clearfix pull-right pointer" @click="logout" v-if="isShowHeader">
+        管理员
+        <el-tooltip class="item tip-logout pl10" effect="dark" content="退出" placement="bottom">
+          <i class="fa fa-sign-out" aria-hidden="true"></i>
+        </el-tooltip>
+      </div>
+    </el-col>
   </el-col>
 </template>
 
@@ -24,6 +24,11 @@
 export default{
   //接收来自父组件的数据
   props:['isFullScreen'],
+  data(){
+    return{
+      isShowHeader:false
+    }
+  },
   methods:{
     //退出登录
     logout:function(){
@@ -31,12 +36,17 @@ export default{
     	this.$confirm('确认退出吗?', '提示', {
     		type: 'warning'
     	}).then(() => {
-    		_this.$router.replace('/admin/login');
-    	}).catch(() => {});
+    		_this.$router.replace('/admin/login')
+    	}).catch(() => {})
     },
     fullScreens(){
       //触发当前实例上的事件
-      this.$emit('fullTodo');
+      this.$emit('fullTodo')
+    }
+  },
+  mounted(){
+    if (process.BROWSER_BUILD) {
+      this.isShowHeader = true
     }
   }
 }

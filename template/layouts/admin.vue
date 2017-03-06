@@ -213,7 +213,6 @@
 			<el-col :span="24" class="panel-center clearfix">
 				<admin-sidebar :isFullScreen="isFullScreen"/>
 				<section class="panel-content" :class="{'active':isFullScreen}">
-
 					<div class="page-header mb20">
 						<div class="page-header-content">
 							<div class="page-title">
@@ -232,7 +231,7 @@
 						</el-breadcrumb>
 					</div>
 					<el-row class="content">
-						<nuxt style="display:none"/>
+						<nuxt v-show="showPage"/>
 					</el-row>
 				</section>
 			</el-col>
@@ -242,13 +241,13 @@
 
 <script>
 
-import Vue from 'vue';
-import ElementUI from 'element-ui';
-import { mapState } from 'vuex';
-import d from 'ddv-util';
+import Vue from 'vue'
+import ElementUI from 'element-ui'
+import { mapState } from 'vuex'
+import d from 'ddv-util'
 
-Vue.filter('d',d);
-Vue.use(ElementUI);
+Vue.filter('d',d)
+Vue.use(ElementUI)
 
 if (process.BROWSER_BUILD) {
   d.api.onDataClientError(function onDataClientError(e,context) {
@@ -274,9 +273,9 @@ if (process.BROWSER_BUILD) {
 }
 
 //头部
-import AdminHeader from '~components/admin/common/header.vue';
+import AdminHeader from '~components/admin/common/header.vue'
 //侧边栏
-import AdminSidebar from '~components/admin/common/sidebar.vue';
+import AdminSidebar from '~components/admin/common/sidebar.vue'
 
 export default {
 	middleware:'adminCheckLogin',
@@ -294,15 +293,15 @@ export default {
 		return{
 			isFullScreen:false,
 			showPage:false
-		};
+		}
 	},
 	methods: {
   	fullTodo() {
-    	this.isFullScreen = !this.isFullScreen;
+    	this.isFullScreen = !this.isFullScreen
   	},
 		changePage(){
-			let flag = this.$route.path !== '/admin/login';
-			this.$store.commit('setLogin',flag);
+			let flag = this.$route.path !== '/admin/login'
+			this.$store.commit('setLogin',flag)
 		}
   },
 	components: {
@@ -312,22 +311,22 @@ export default {
 	computed:mapState({
 		storeData : state => state.admin,
 		breadcrumbTitle(){
-			return this.storeData.breadcrumb.slice(this.storeData.breadcrumb.length-2,this.storeData.breadcrumb.length);
+			return this.storeData.breadcrumb.slice(this.storeData.breadcrumb.length-2,this.storeData.breadcrumb.length)
 		},
 		ground(){
 			if(this.storeData.breadcrumb.length === 1){
-				let obj = this.storeData.breadcrumb[0];
-				return obj.name;
+				let obj = this.storeData.breadcrumb[0]
+				return obj.name
 			}else if(this.storeData.breadcrumb.length >= 2){
-				let obj = this.storeData.breadcrumb[this.storeData.breadcrumb.length-2];
-				return obj.name;
+				let obj = this.storeData.breadcrumb[this.storeData.breadcrumb.length-2]
+				return obj.name
 			}
 			return ''
 		},
 		nowPage(){
 			if(this.storeData.breadcrumb.length >= 2){
-				let obj = this.storeData.breadcrumb[this.storeData.breadcrumb.length-1];
-				return ` - ${obj.name}`;
+				let obj = this.storeData.breadcrumb[this.storeData.breadcrumb.length-1]
+				return ` - ${obj.name}`
 			}
 			return ''
 		}
@@ -344,8 +343,8 @@ export default {
 		_this.$nextTick(()=>{
 			setTimeout(() => {
 				_this.showPage = (_this.storeData.isLogin && _this.$route.path !== '/admin/login')
-			},500);
+			},500)
 		})
 	}
-};
+}
 </script>
