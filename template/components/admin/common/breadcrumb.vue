@@ -5,7 +5,8 @@
         <h4>
           <i class="fa fa-arrow-circle-left position-left pointer" @click="$router.go(-1)">
           </i>
-          <span class="text-semibold">{{ground}}</span>{{nowPage}}
+          <span class="text-semibold" v-text="ground"></span>
+          <span v-text="nowPage"></span>
         </h4>
       </div>
     </div>
