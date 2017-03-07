@@ -307,6 +307,8 @@ export default {
 }
 </script>
 
+<style src="video.js/dist/video-js.css"></style>
+
 <style lang="css">
 .video-js.vjs-custom-skin {
   width: 100%;
@@ -489,4 +491,10 @@ export default {
   order: 6;
 }
 
+video::-webkit-media-controls {
+  display:none !important;
+}
+video::-webkit-media-controls-enclosure {
+  display: none !important;
+}
 </style>
