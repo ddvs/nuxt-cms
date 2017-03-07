@@ -1,10 +1,10 @@
-export default function ({ store, redirect, route}) {
+export default function ({ res, store, redirect, route}) {
   return
   // 先中断掉，避免报错
   // 微信处理中间件
   d.api.get('v2_0/wechat/xxx').send({'url': 'url'})
   .then(res => {
-    return redirect(res.data.url)
+    return res.redirect(res.data.url)
   })
   .then(() => {
     return Promise.resolve().then(() => {
