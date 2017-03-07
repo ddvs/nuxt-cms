@@ -27,7 +27,6 @@ export default {
       hls: true
     },
   },
-
   created: function () {
     // Vue2.0 $on监听父组件命令
     if (this.$parent) {
