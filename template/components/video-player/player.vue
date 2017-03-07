@@ -18,20 +18,13 @@ export default {
     }
   },
   props: {
-    configs: {
-      type: Object,
-      default: function () {
-        return {
-          youtube: false,
-          vimeo: false,
-          switcher: true,
-          hls: true
-        }
-      }
-    },
     options: {
       type: Object,
-      required: true
+      required: true,
+      youtube: false,
+      vimeo: false,
+      switcher: true,
+      hls: true
     },
   },
 
