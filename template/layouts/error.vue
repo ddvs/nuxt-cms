@@ -1,14 +1,10 @@
 <template>
 	<section>
-		<h1 class="error-title">
-			{{ error.statusCode }}
-		</h1>
+		<h1 class="error-title" v-text="error.statusCode"></h1>
 		<h2 class="info" v-if="error.statusCode === 404">
 			抱歉，页面被外星人劫走了~~
 		</h2>
-		<h2 class="info" v-else>
-			{{ error.message }}
-		</h2>
+		<h2 class="info" v-else v-text="error.message"></h2>
 	</section>
 </template>
 
@@ -22,11 +18,11 @@ export default {
 	head(){
 		return {
 			title:`屏趣 -- ${this.error.statusCode}`,
-		    meta:[
-		        {'charset': 'utf-8' },
+	    meta:[
+	      {'charset': 'utf-8' },
 				{'name': 'viewport', 'content': 'width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no' },
-		        {'name':'renderer','content':'webkit'}
-		    ]
+	      {'name':'renderer','content':'webkit'}
+	    ]
 		}
 	}
 }
