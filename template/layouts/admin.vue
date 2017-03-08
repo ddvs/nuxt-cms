@@ -211,7 +211,7 @@
 			<nuxt v-if="!storeData.isLogin"/>
 		</transition>
 		<el-row class="panels" v-if="storeData.isLogin">
-			<admin-header @fullTodo="fullTodo"/>
+			<admin-header :fullTodo="fullTodo"/>
 			<el-col :span="24" class="panel-center clearfix">
 				<admin-sidebar :isFullScreen="isFullScreen"/>
 				<section class="panel-content" :class="{'active':isFullScreen}">
