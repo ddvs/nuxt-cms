@@ -1,0 +1,402 @@
+
+$browser-default-font-size: 64px !default;
+
+$text-red:#f2214d;
+
+$prefix-for-webkit: true !default;
+$prefix-for-mozilla: true !default;
+$prefix-for-microsoft: true !default;
+$prefix-for-opera: true !default;
+$prefix-for-spec: true !default;
+
+@function pxTorem($px){
+  @return $px / $browser-default-font-size * 1rem;
+}
+
+@mixin rounded($amount) {
+  -moz-border-radius: $amount;
+  -webkit-border-radius: $amount;
+  border-radius: $amount;
+}
+
+@mixin pxRadius($color,$radius) {
+  border: 1px solid $color;
+  @include rounded($radius);
+  content: " ";
+  width: 200%;
+  height: 200%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  -webkit-transform: scale(0.5);
+  transform: scale(0.5);
+  -webkit-transform-origin: 0 0;
+  transform-origin: 0 0;
+}
+
+@mixin pxBorderLeftRight($color,$position) {
+  content: " ";
+  position: absolute;
+  #{$position}: 0;
+  top: 0;
+  width: 1px;
+  height: 100%;
+  border-#{$position}: 1px solid $color;
+  color: $color;
+  -webkit-transform-origin: 100% 0;
+  transform-origin: 100% 0;
+  -webkit-transform: scaleX(0.5);
+  transform: scaleX(0.5);
+}
+
+@mixin pxBorderTopBottom($color,$position) {
+  content: " ";
+  position: absolute;
+  left: 0;
+  #{$position}: -1px;
+  width: 100%;
+  height: 1px;
+  border-#{$position}: 1px solid $color;
+  color: $color;
+  -webkit-transform-origin: 0 0;
+  transform-origin: 0 0;
+  -webkit-transform: scaleY(0.5);
+  transform: scaleY(0.5);
+}
+
+@mixin pxBorder($color){
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  border: 1px solid $color;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  width: 200%;
+  height: 200%;
+  -webkit-transform: scale(0.5);
+  transform: scale(0.5);
+  -webkit-transform-origin: left top;
+  transform-origin: left top;
+}
+
+@mixin pxBorderTopBom($color,$position){
+  content: '';
+  position: absolute;
+  #{$position}: 0;
+  background: $color;
+  width: 100%;
+  height: 1px;
+  -webkit-transform: scaleY(0.5);
+  transform: scaleY(0.5);
+  -webkit-transform-origin: 0 0;
+  transform-origin: 0 0;
+}
+
+@mixin inputplacolor($color){
+  input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
+    color :$color;
+  }
+  input:-moz-placeholder, textarea:-moz-placeholder {
+    color :$color;
+  }
+  input::-moz-placeholder, textarea::-moz-placeholder {
+    color :$color;
+  }
+  input:-ms-input-placeholder, textarea:-ms-input-placeholder {
+    color :$color;
+  }
+}
+@mixin inputlineheig($lineheig){
+  input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
+    line-height: $lineheig;
+  }
+  input:-moz-placeholder, textarea:-moz-placeholder {
+    line-height: $lineheig;
+  }
+  input::-moz-placeholder, textarea::-moz-placeholder {
+    line-height: $lineheig;
+  }
+  input:-ms-input-placeholder, textarea:-ms-input-placeholder {
+    line-height: $lineheig;
+  }
+}
+
+
+@mixin WHLH($width,$height){
+  width: $width;
+  height: $height;
+  text-align: center;
+  line-height: $height;
+}
+
+@mixin tranformCenter(){
+  left:50%;
+  -webkit-transform: translate3d(-50%,0,0);
+  transform: translate3d(-50%,0,0);
+}
+
+@mixin WH($width){
+  width: $width;
+  height: $width;
+}
+
+@mixin autoCenter{
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  margin: auto;
+}
+
+@mixin rounder-side($tl,$tr,$bl,$br){
+  -moz-border-radius: $tl $tr $bl $br;
+  -webkit-border-radius: $tl $tr $bl $br;
+  border-radius: $tl $tr $bl $br;
+}
+
+@mixin buttonRadius($tl){
+  -moz-border-radius: $tl;
+  -webkit-border-radius: $tl;
+  border-radius: $tl;
+}
+
+@mixin height($height){
+  height: $height;
+  line-height: $height;
+}
+
+@mixin prefixer ($property, $value, $prefixes) {
+  @each $prefix in $prefixes {
+
+    @if $prefix == webkit and $prefix-for-webkit == true {
+      -webkit-#{$property}: $value;
+    }
+    @else if $prefix == moz and $prefix-for-mozilla == true {
+      -moz-#{$property}: $value;
+    }
+    @else if $prefix == ms and $prefix-for-microsoft == true {
+      -ms-#{$property}: $value;
+    }
+    @else if $prefix == o and $prefix-for-opera == true {
+      -o-#{$property}: $value;
+    }
+    @else if $prefix == spec and $prefix-for-spec == true {
+      #{$property}: $value;
+    }
+    @else {
+      @warn "Unrecognized prefix: #{$prefix}";
+    }
+  }
+}
+
+@mixin skewX($degrees) {
+  @include prefixer(transform, skewX($degrees), webkit moz o ms spec);
+  -webkit-backface-visibility: hidden;
+}
+
+@mixin wordEllipsisNum($lineNum){
+  word-break: break-all;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: $lineNum;
+  -webkit-box-orient: vertical;
+}
+
+@mixin wordEllipsis(){
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+
+@mixin triangleArrowup($tb,$lr,$color){
+  border-top: $tb solid transparent;
+  border-bottom: $tb solid $color;
+  border-left: $lr solid transparent;
+  border-right: $lr solid transparent;
+}
+
+//switch button
+@mixin switch_code($width,$height,$background){
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  position: relative;
+  width: $width;
+  height: $height;
+  //border: 1px solid #d9d9d9;
+  outline: 0;
+  border-radius: $height/2;
+  box-sizing: border-box;
+  background: #d9d9d9;
+
+  &:after{
+    width: $height;
+    height: $height;
+    background-color: #fff;
+    box-shadow: 0 1px 3px rgba(0,0,0,.4);
+
+    content: " ";
+    top: 0;
+    left: 1px;
+    position: absolute;
+    -webkit-transition: -webkit-transform .3s;
+    transition: -webkit-transform .3s;
+    transition: transform .3s;
+    transition: transform .3s,-webkit-transform .3s;
+    border-radius: $height;
+  }
+
+  &:before {
+    width: $width;
+    height: $height;
+    background-color: #d9d9d9;
+
+    content: " ";
+    top: 0;
+    left: 0;
+    position: absolute;
+    -webkit-transition: -webkit-transform .3s;
+    transition: -webkit-transform .3s;
+    transition: transform .3s;
+    transition: transform .3s,-webkit-transform .3s;
+    border-radius: $height/2;
+  }
+
+  &:checked {
+    border-color: $background;
+    background-color: $background;
+
+    &:before {
+      -webkit-transform: scale(0);
+      transform: scale(0);
+    }
+
+    &:after {
+      -webkit-transform: translateX($width - $height);
+      transform: translateX($width - $height);
+    }
+  }
+}
+
+//select button
+@mixin checkbox_core($background,$WH){
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  outline: 0;
+  background-color: #fff;
+  border-radius: 100%;
+  border: 1px solid #ccc;
+  position: relative;
+  width: $WH;
+  height: $WH;
+  //vertical-align: middle;
+  //display: inline-flex;
+  //justify-content: center;
+  //align-items: center;
+
+  &:after {
+    border: $WH*0.09 solid transparent;
+    border-left: 0;
+    border-top: 0;
+    content: " ";
+    top: $WH*0.18;
+    left: $WH*0.3333333333337;
+    position: absolute;
+    width: $WH*0.2;
+    height: $WH*0.4;
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+  }
+
+  &:checked {
+    background-color: $background;
+    border-color: $background;
+
+    &:after {
+      border-color: #fff;
+    }
+  }
+
+  &[disabled] {
+    background-color: #d9d9d9;
+    border-color: #ccc;
+  }
+}
+
+//radio button
+@mixin radio_core($background,$WH){
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  outline: 0;
+  background-color: #fff;
+  border-radius: 100%;
+  border: 1px solid #ccc;
+  position: relative;
+  width: $WH;
+  height: $WH;
+  vertical-align: middle;
+
+  &:checked {
+    background-color: #fff;
+    border-color: $background;
+
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &:after {
+    content: " ";
+    border-radius: 100%;
+    //top: $WH*0.3;
+    //left: $WH*0.3;
+    //position: absolute;
+    width: $WH*0.5;
+    height: $WH*0.5;
+  }
+
+  &:checked{
+    &:after {
+      background-color: $background;
+    }
+  }
+}
+
+@mixin round_close{
+  position: relative;
+  @include rounded(50%);
+  background-color: #d80404;
+  width: 40px;
+  height: 40px;
+
+  &:after {
+    content: " ";
+    width: 8px;
+    height: 8px;
+    border: 4px solid #fff;
+    border-left: 0;
+    border-top: 0;
+    position: absolute;
+    top: 9px;
+    left: 14px;
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+  }
+  &:before {
+    content: " ";
+    width: 8px;
+    height: 8px;
+    border: 4px solid #fff;
+    border-right: 0;
+    border-bottom: 0;
+    position: absolute;
+    bottom: 8px;
+    left: 14px;
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+  }
+}

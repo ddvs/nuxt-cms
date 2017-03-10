@@ -46,7 +46,13 @@ export default {
         {'name':'apple-mobile-web-app-status-bar-style','content':'black'},
         {'name':'format-detection','content':'telephone=no,email=no'},
         {'name':'msapplication-tap-highlight','content':'no'},
-				{'name':'flexible','content':'initial-dpr=2,maximum-dpr=3'}
+				{'name':'flexible','content':'initial-dpr=2,maximum-dpr=3'},
+				{'name':'screen-orientation','content':'portrait'},
+				{'name':'x5-orientation','content':'portrait'},
+				{'name':'full-screen','content':'yes'},
+				{'name':'x5-fullscreen','content':'true'},
+				{'name':'browsermode','content':'application'},
+				{'name':'x5-page-mode','content':'app'}
 	  	]
 		}
 	}
