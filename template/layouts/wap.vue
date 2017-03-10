@@ -14,6 +14,10 @@ import d from 'ddv-util';
 Vue.filter('d',d);
 Vue.use(Mint);
 
+if(process.BROWSER_BUILD){
+	require('~plugins/flexible');
+}
+
 if (process.BROWSER_BUILD) {
   d.api.onDataClientError(function onDataClientError(e,context) {
   	var toPath
