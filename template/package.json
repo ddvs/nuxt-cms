@@ -38,5 +38,11 @@
     "eslint-plugin-promise": "^3.4.0",
     "eslint-plugin-standard": "^2.0.1",
     "nodemon": "^1.11.0"
+  },
+  "standard": {
+    "parser": "babel-eslint",
+    "globals": [
+      "d"
+    ]
   }
 }
