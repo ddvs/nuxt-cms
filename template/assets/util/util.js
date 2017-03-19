@@ -97,5 +97,36 @@ export default{
             // no default:
     }
     return flag
+  },
+  timeSince (date) {
+    var oldDate = date
+
+    date = date.split('-').join('/')
+
+    var seconds = Math.floor((new Date() - new Date(date)) / 1000)
+
+    var interval = Math.floor(seconds / 31536000)
+    if (interval > 1) {
+      return oldDate
+    }
+    interval = Math.floor(seconds / 2592000)
+    if (interval > 1) {
+      return oldDate
+    }
+    interval = Math.floor(seconds / 86400)
+    if (interval > 1 && interval <= 7) {
+      return interval + ' 天前'
+    } else if (interval > 7) {
+      return oldDate
+    }
+    interval = Math.floor(seconds / 3600)
+    if (interval > 1) {
+      return interval + ' 小时前'
+    }
+    interval = Math.floor(seconds / 60)
+    if (interval > 1) {
+      return interval + ' 分钟前'
+    }
+    return '刚刚'
   }
 }
