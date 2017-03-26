@@ -1,3 +1,4 @@
+const path = require('path')
 
 module.exports = {
   /*
@@ -19,6 +20,7 @@ module.exports = {
     loaders: [
       {
         test: /\.css$/,
+        exclude: path.resolve(__dirname, './node_modules'),
         loader: 'style-loader!css-loader?modules!postcss-loader'
       },
       {
