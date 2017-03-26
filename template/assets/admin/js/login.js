@@ -5,9 +5,8 @@ export default{
       titleTemplate: '%s - 登录'
     }
   },
-  data ({ req }) {
+  data () {
     return {
-      name: req ? 'server' : 'client',
       ruleForm2: {
         account: '',
         checkPass: ''
