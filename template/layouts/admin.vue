@@ -290,6 +290,11 @@ export default {
 		changePage(){
 			let flag = this.$route.path !== '/admin/login'
 			this.$store.commit('setLogin',flag)
+		},
+		showContent(){
+			setTimeout(()=>{
+				this.showPage = (this.storeData.isLogin && this.$route.path !== '/admin/login')
+			},500)
 		}
   },
 	components: {
@@ -304,15 +309,17 @@ export default {
 		'$route.path':{
 			handler:'changePage',
 			deep:true
+		},
+		'storeData.isLogin':{
+			handler:'showContent',
+			deep:true
 		}
 	},
 	created(){
 		var _this = this
 		_this.changePage()
 		_this.$nextTick(()=>{
-			setTimeout(() => {
-				_this.showPage = (_this.storeData.isLogin && _this.$route.path !== '/admin/login')
-			},500)
+			this.showContent()
 		})
 	}
 }
