@@ -14,8 +14,10 @@
   },
   "dependencies": {
     "babel-plugin-component": "^0.6.0",
+    "babel-polyfill": "^6.23.0",
     "css-loader": "^0.26.1",
-    "ddv-restful-api": "~0.0.7",
+    "ddv-restful-api": "~0.0.16",
+    "ddv-restful-ws-api": "0.0.5",
     "ddv-util": "~0.0.8",
     "ddv-worker": "~0.0.14",
     "element-ui": "^1.2",

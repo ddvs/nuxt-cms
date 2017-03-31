@@ -44,7 +44,7 @@ module.exports = {
         browsers: ['last 3 versions']
       })
     ],
-    vendor: ['ddv-restful-api', 'ddv-util']
+    vendor: ['babel-polyfill', 'ddv-restful-api', 'ddv-restful-ws-api', 'ddv-util']
   },
   plugins: [ '~plugins/ddv-restful-api', '~plugins/ddv-util' ],
   /*
