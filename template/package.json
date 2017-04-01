@@ -16,7 +16,7 @@
     "babel-plugin-component": "^0.6.0",
     "babel-polyfill": "^6.23.0",
     "css-loader": "^0.26.1",
-    "ddv-cms": "~0.0.4",
+    "ddv-cms": "~0.0.5",
     "element-ui": "^1.2",
     "lodash": "^4.17.4",
     "mint-ui": "^2.1",
