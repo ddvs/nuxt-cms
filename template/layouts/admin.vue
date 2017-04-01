@@ -1,15 +1,13 @@
 <style src="element-ui/lib/theme-default/index.css" lang="css"></style>
-<style src="~assets/admin/css/common/bootstrap/css/bootstrap.css" lang="css"></style>
-<style src="~assets/admin/css/common/font-awesome/css/font-awesome.min.css" lang="css"></style>
-<style src="~assets/admin/scss/common/core.scss" lang="scss"></style>
-<style src="~assets/admin/scss/common/components.scss" lang="scss"></style>
-<style src="~assets/admin/css/common/colors.css" lang="css"></style>
-<style src="~assets/admin/css/common/base.css" lang="css"></style>
+
+<style src="ddv-cms/lib/style/admin/bootstrap/css/bootstrap.css" lang="css"></style>
+<style src="ddv-cms/lib/style/admin/font-awesome/css/font-awesome.min.css" lang="css"></style>
+<style src="ddv-cms/lib/style/admin/scss/core.scss" lang="scss"></style>
+<style src="ddv-cms/lib/style/admin/scss/components.scss" lang="scss"></style>
+<style src="ddv-cms/lib/style/admin/colors.css" lang="css"></style>
+<style src="ddv-cms/lib/style/admin/base.css" lang="css"></style>
 
 <style lang="scss">
-	[v-cloak] {
-	  display: none;
-	}
 	.ddv-management-system{
 		.fade-enter-active,
 		.fade-leave-active {
