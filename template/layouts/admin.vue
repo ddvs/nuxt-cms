@@ -1,6 +1,6 @@
 <style src="element-ui/lib/theme-default/index.css" lang="css"></style>
 
-<style src="ddv-cms/lib/style/admin/bootstrap/css/bootstrap.css" lang="css"></style>
+<style src="ddv-cms/lib/style/bootstrap/css/bootstrap.min.css" lang="css"></style>
 <style src="ddv-cms/lib/style/admin/font-awesome/css/font-awesome.min.css" lang="css"></style>
 <style src="ddv-cms/lib/style/admin/scss/core.scss" lang="scss"></style>
 <style src="ddv-cms/lib/style/admin/scss/components.scss" lang="scss"></style>
