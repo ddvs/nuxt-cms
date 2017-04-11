@@ -17,7 +17,7 @@
     "babel-polyfill": "^6.23.0",
     "bootstrap": "^3.3.7",
     "css-loader": "^0.26.1",
-    "ddv-cms": "~0.0.7",
+    "ddv-cms": "^0.0.8",
     "font-awesome": "^4.7.0",
     "lodash": "^4.17.4",
     "node-sass": "~4.5.0",
@@ -35,7 +35,7 @@
     "eslint-plugin-import": "^2.2.0",
     "eslint-plugin-node": "^4.2.2",
     "eslint-plugin-promise": "^3.5.0",
-    "eslint-plugin-standard": "^3.0.1",
+    "eslint-plugin-standard": "^3.0.1"
   },
   "standard": {
     "parser": "babel-eslint",
