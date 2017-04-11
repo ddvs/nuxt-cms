@@ -1,5 +1,4 @@
 <style src="element-ui/lib/theme-default/index.css" lang="css"></style>
-
 <style src="ddv-cms/lib/style/bootstrap/css/bootstrap.min.css" lang="css"></style>
 <style src="ddv-cms/lib/style/admin/font-awesome/css/font-awesome.min.css" lang="css"></style>
 <style src="ddv-cms/lib/style/admin/scss/core.scss" lang="scss"></style>
@@ -8,6 +7,9 @@
 <style src="ddv-cms/lib/style/admin/base.css" lang="css"></style>
 
 <style lang="scss">
+	[v-cloak] {
+	  display: none;
+	}
 	.ddv-management-system{
 		.fade-enter-active,
 		.fade-leave-active {
@@ -73,13 +75,22 @@
 		}
 
 		.sidebars{
-		    height: 100%;
-		    overflow: auto;
-		    vertical-align: top;
-		    width: 260px;
-		    background-color: #263238;
-		    color: #fff;
-		    position: relative;
+	    height: 100%;
+	    overflow: auto;
+	    vertical-align: top;
+	    width: 260px;
+	    background-color: #263238;
+	    color: #fff;
+	    position: relative;
+
+			.el-menu--dark{
+	        background-color:#263238;
+	    }
+
+	    .el-menu--horizontal.el-menu--dark .el-submenu .el-menu-item.is-active, .el-menu-item.is-active{
+	        background-color: #26a69a;
+	        color: #fff;
+	    }
 		}
 
 		.sidebars-main{
@@ -169,49 +180,30 @@
 	}
 </style>
 
-<style>
-.bounce-enter-active {
-	animation: bounce-in .3s;
-}
-
-.bounce-leave-active {
-	animation: bounce-out .2s;
-}
-
-@keyframes bounce-in {
-	0% {
-		transform: scale(0);
-	}
-	50% {
-		transform: scale(1.05);
-	}
-	100% {
-		transform: scale(1);
-	}
-}
-
-@keyframes bounce-out {
-	0% {
-		transform: scale(1);
-	}
-	50% {
-		transform: scale(0.95);
-	}
-	100% {
-		transform: scale(0);
-	}
-}
-</style>
-
 <template>
 	<div class="ddv-management-system">
 		<transition name="bounce">
 			<nuxt v-if="!storeData.isLogin"/>
 		</transition>
 		<el-row class="panels" v-if="storeData.isLogin">
-			<admin-header :fullTodo="fullTodo"/>
+			<admin-header :fullTodo="fullTodo" title="屏趣" type-name="管理后台" logo="/logo.png" user="管理员"/>
 			<el-col :span="24" class="panel-center clearfix">
-				<admin-sidebar :isFullScreen="isFullScreen"/>
+				<admin-sidebar :isFullScreen="isFullScreen">
+					<el-menu theme="dark" :router="true" :unique-opened="true" :default-active="$route.path">
+	          <el-submenu index="1">
+	            <template slot="title">
+	              <i class="el-icon-message"></i>
+	              菜单
+	            </template>
+	            <el-menu-item index="/admin/">
+	              首页
+	            </el-menu-item>
+	            <el-menu-item index="/admin/about">
+	              关于
+	            </el-menu-item>
+	          </el-submenu>
+	        </el-menu>
+				</admin-sidebar>
 				<section class="panel-content" :class="{'active':isFullScreen}">
 					<admin-breadcrumb/>
 					<el-row class="content">
@@ -256,12 +248,8 @@ if (process.BROWSER_BUILD) {
   })
 }
 
-//头部
-import AdminHeader from '~components/admin/common/header.vue'
-//侧边栏
-import AdminSidebar from '~components/admin/common/sidebar.vue'
-//面包屑
-import AdminBreadcrumb from '~components/admin/common/breadcrumb.vue'
+//头部-侧边栏-面包屑
+import {adminHeader, adminSidebar, adminBreadcrumb} from 'ddv-cms';
 
 export default {
 	middleware:'adminCheckLogin',
@@ -296,9 +284,9 @@ export default {
 		}
   },
 	components: {
-		AdminHeader,
-		AdminSidebar,
-		AdminBreadcrumb
+		adminHeader,
+		adminSidebar,
+		adminBreadcrumb
 	},
 	computed:mapState({
 		storeData : state => state.admin

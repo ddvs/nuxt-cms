@@ -9,13 +9,13 @@ export default {
   props: ['value'],
   data(){
     return {
-      innerText:this.value
+      innerText: this.value
     }
   },
   methods:{
     changeText(){
-      this.innerText = this.$el.innerHTML;
-      this.$emit('input',this.innerText);
+      this.innerText = this.$el.innerHTML
+      this.$emit('input', this.innerText)
     }
   }
 }

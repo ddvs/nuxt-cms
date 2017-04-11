@@ -5,10 +5,10 @@
   "author": "{{ author }}",
   "private": true,
   "scripts": {
-    "dev": "nodemon -w server.js -w nuxt.config.js -w api/ server.js",
-    "ddvdev": "node server.js",
-    "build": "nuxt build",
-    "start": "NODE_ENV=production node server.js",
+    "dev": "ddvcms dev",
+    "start": "ddvcms start",
+    "build": "ddvcms build",
+    "generate": "ddvcms generate",
     "precommit": "npm run lint",
     "lint": "eslint --ext .js,.vue --ignore-path .gitignore ."
   },
