@@ -1,5 +1,5 @@
 <style src="mint-ui/lib/style.css" lang="css"></style>
-<style src="ddv-cms/style/wap/base.scss" lang="scss"></style>
+<style src="ddv-cms/css/wap/base.css" lang="css"></style>
 <template>
   <div>
     <nuxt/>
