@@ -180,6 +180,40 @@
   }
 </style>
 
+<style>
+.bounce-enter-active {
+  animation: bounce-in .3s;
+}
+
+.bounce-leave-active {
+  animation: bounce-out .2s;
+}
+
+@keyframes bounce-in {
+  0% {
+    transform: scale(0);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes bounce-out {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(0.95);
+  }
+  100% {
+    transform: scale(0);
+  }
+}
+</style>
+
 <template>
   <div class="ddv-management-system">
     <transition name="bounce">
@@ -205,7 +239,7 @@
           </el-menu>
         </admin-sidebar>
         <section class="panel-content" :class="{'active':isFullScreen}">
-          <admin-breadcrumb/>
+          <admin-breadcrumb :ground="ground" :now-page="nowPage" :breadcrumb="storeData.breadcrumb"/>
           <el-row class="content">
             <nuxt v-show="showPage"/>
           </el-row>
@@ -288,7 +322,27 @@ export default {
     adminBreadcrumb
   },
   computed: mapState({
-    storeData: state => state.admin
+    storeData: state => state.admin,
+    breadcrumbTitle () {
+      return this.storeData.breadcrumb.slice(this.storeData.breadcrumb.length - 2, this.storeData.breadcrumb.length)
+    },
+    ground () {
+      if (this.storeData.breadcrumb.length === 1) {
+        let obj = this.storeData.breadcrumb[0]
+        return obj.name
+      } else if (this.storeData.breadcrumb.length >= 2) {
+        let obj = this.storeData.breadcrumb[this.storeData.breadcrumb.length - 2]
+        return obj.name
+      }
+      return ''
+    },
+    nowPage () {
+      if (this.storeData.breadcrumb.length >= 2) {
+        let obj = this.storeData.breadcrumb[this.storeData.breadcrumb.length - 1]
+        return ` - ${obj.name}`
+      }
+      return ''
+    }
   }),
   watch: {
     '$route.path': {
