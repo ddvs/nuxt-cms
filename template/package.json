@@ -17,7 +17,7 @@
     "babel-polyfill": "^6.23.0",
     "bootstrap": "^3.3.7",
     "css-loader": "^0.26.1",
-    "ddv-cms": "^0.0.10",
+    "ddv-cms": "^0.0.14",
     "font-awesome": "^4.7.0",
     "lodash": "^4.17.4",
     "node-sass": "~4.5.0",
