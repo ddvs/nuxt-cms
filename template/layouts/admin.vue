@@ -217,11 +217,8 @@
 
 <template>
   <div class="ddv-management-system">
-    <transition name="bounce">
-      <nuxt v-if="!storeData.isLogin"/>
-    </transition>
-    <el-row class="panels" v-if="storeData.isLogin">
-      <admin-header :fullTodo="fullTodo" title="屏趣" type-name="管理后台" logo="/logo.png" user="管理员"/>
+    <el-row class="panels">
+      <admin-header :fullTodo="fullTodo" title="屏趣" type-name="管理后台" logo="/logo.png" user="管理员" :logout="logout"/>
       <el-col :span="24" class="panel-center clearfix">
         <admin-sidebar :isFullScreen="isFullScreen">
           <el-menu theme="dark" :router="true" :unique-opened="true" :default-active="$route.path">
@@ -242,7 +239,7 @@
         <section class="panel-content" :class="{'active':isFullScreen}">
           <admin-breadcrumb :ground="ground" :now-page="nowPage" :breadcrumb="storeData.breadcrumb"/>
           <el-row class="content">
-            <nuxt v-show="showPage"/>
+            <nuxt/>
           </el-row>
         </section>
       </el-col>
@@ -311,10 +308,12 @@ export default {
       let flag = this.$route.path !== '/admin/login'
       this.$store.commit('setLogin', flag)
     },
-    showContent () {
-      setTimeout(() => {
-        this.showPage = (this.storeData.isLogin && this.$route.path !== '/admin/login')
-      }, 500)
+    logout () {
+      this.$confirm('确认退出吗?', '提示', {
+        type: 'warning'
+      }).then(() => {
+        this.$router.replace('/admin/login')
+      }).catch(() => {})
     }
   },
   components: {
@@ -349,18 +348,10 @@ export default {
     '$route.path': {
       handler: 'changePage',
       deep: true
-    },
-    'storeData.isLogin': {
-      handler: 'showContent',
-      deep: true
     }
   },
   created () {
-    var _this = this
-    _this.changePage()
-    _this.$nextTick(() => {
-      this.showContent()
-    })
+    this.changePage()
   }
 }
 </script>

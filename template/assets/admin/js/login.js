@@ -7,11 +7,11 @@ export default{
   },
   data () {
     return {
-      ruleForm2: {
+      ruleForm: {
         account: '',
         checkPass: ''
       },
-      rules2: {
+      rules: {
         account: [
           {
             required: true,
@@ -31,12 +31,12 @@ export default{
     }
   },
   methods: {
-    handleReset2 () {
-      this.$refs.ruleForm2.resetFields()
+    handleReset () {
+      this.$refs.ruleForm.resetFields()
     },
-    handleSubmit2 () {
+    handleSubmit () {
       var _this = this
-      this.$refs.ruleForm2.validate((valid) => {
+      this.$refs.ruleForm.validate((valid) => {
         if (valid) {
           this.$store.commit('setLogin', true)
           _this.$router.replace('/admin/')
