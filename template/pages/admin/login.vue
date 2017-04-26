@@ -7,7 +7,7 @@
   top: 0;
   bottom: 0;
   background: #20A079;
-  z-index: 200;
+  z-index: 1000;
 }
 
 .card-box {
@@ -33,6 +33,39 @@
 .loginform {
   width: 350px;
   padding: 35px 35px 15px 35px;
+}
+</style>
+<style>
+.bounce-enter-active {
+  animation: bounce-in .3s;
+}
+
+.bounce-leave-active {
+  animation: bounce-out .2s;
+}
+
+@keyframes bounce-in {
+  0% {
+    transform: scale(0);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes bounce-out {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(0.95);
+  }
+  100% {
+    transform: scale(0);
+  }
 }
 </style>
 

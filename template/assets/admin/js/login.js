@@ -1,5 +1,6 @@
 export default{
   layout: 'admin',
+  transition: 'bounce',
   head () {
     return {
       titleTemplate: '%s - 登录'
