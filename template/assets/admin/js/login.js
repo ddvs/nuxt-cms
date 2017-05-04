@@ -40,7 +40,7 @@ export default{
       this.$refs.ruleForm.validate((valid) => {
         if (valid) {
           this.$store.commit('setLogin', true)
-          _this.$router.replace('/admin/')
+          this.$router.replace('/admin/')
         } else {
           console.log('error submit!!')
           return false
