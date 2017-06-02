@@ -9,7 +9,7 @@ const EMAIL_REGEXP = /^([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\
 const DICARD_REGEXP = /^(^[1-9]\d{7}((0\d)|(1[0-2]))(([0|1|2]\d)|3[0-1])\d{3}$)|(^[1-9]\d{5}[1-9]\d{3}((0\d)|(1[0-2]))(([0|1|2]\d)|3[0-1])((\d{4})|\d{3}[Xx])$)$/
 
 export default{
-    // 货币格式化
+  // 货币格式化
   formatCurrency (num) {
     num = num || '0'
     num = num.toString().replace(/\$|\,/g, '')
@@ -27,9 +27,9 @@ export default{
     }
     return (((sign) ? '' : '-') + num + '.' + cents)
   },
-    // 返回所有结果集,格式为[[1,2,3],[4,5,6]...]
+  // 返回所有结果集,格式为[[1,2,3],[4,5,6]...]
   combine (array) {
-    if (!(array instanceof Array)) {
+    if (!(Array.isArray(array))) {
       console.error('非法数组')
       return
     }
@@ -45,20 +45,20 @@ export default{
 
     return r
   },
-    // 移除所有值为假的对象，返回对象本身
+  // 移除所有值为假的对象，返回对象本身
   compactObj (obj) {
     for (var v in obj) {
       if (obj.hasOwnProperty(v)) {
-        if (!obj[v]) {
+        if (!obj[v] && obj[v] !== 0) {
           delete obj[v]
         }
       }
     }
     return obj
   },
-    // 移除所有值为假的数组，返回数组本身
+  // 移除所有值为假的数组，返回数组本身
   compactArray (array) {
-    if (!(array instanceof Array)) {
+    if (!(Array.isArray(array))) {
       console.error('非法数组')
       return
     }
@@ -74,7 +74,7 @@ export default{
     }
     return array
   },
-    // 验证。暂时支持：手机号、邮箱、身份证。后面补
+  // 验证。暂时支持：手机号、邮箱、身份证。后面补
   regCheck (num, type) {
     var flag
 
@@ -94,7 +94,7 @@ export default{
       case 'id_card':
         flag = DICARD_REGEXP.test(num)
         break
-            // no default:
+      // no default:
     }
     return flag
   },
@@ -128,5 +128,47 @@ export default{
       return interval + ' 分钟前'
     }
     return '刚刚'
+  },
+  timeEquation (val) {
+    let time
+    let cnt = Math.round(val)
+    let hour = Math.floor(cnt / 3600)
+    let minute = Math.floor(cnt % 3600 / 60)
+    let seconds = Math.round(cnt % 3600 % 60)
+
+    if (hour < 10) {
+      hour += '0'
+    }
+
+    if (minute < 10) {
+      minute += '0'
+    }
+
+    if (seconds < 10) {
+      seconds += '0'
+    }
+
+    if (hour === '00' && minute === '00' && seconds === '00') {
+      time = '-'
+    } else {
+      time = `${hour}小时${minute}分钟${seconds}秒`
+    }
+
+    return time
+  },
+  // 切割数组
+  chunk (array, size) {
+    if (!(Array.isArray(array))) {
+      console.error('非法数组')
+      return
+    }
+
+    var result = []
+    for (var x = 0; x < Math.ceil(array.length / size); x++) {
+      var start = x * size
+      var end = start + size
+      result.push(array.slice(start, end))
+    }
+    return result
   }
 }
