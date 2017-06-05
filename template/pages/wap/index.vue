@@ -23,49 +23,43 @@
 
 <script>
 export default {
-    layout:'wap',
-    head(){
+  layout:'wap',
+  head(){
 		return {
 			titleTemplate: '%s - 首页'
 		};
 	},
-	data ({ req }) {
+	data () {
 		return {
-			name: req ? 'server' : 'client',
-
-	        list: [],
-	        topStatus: '',
-	        wrapperHeight: 0
+      list: [],
+      topStatus: '',
+      wrapperHeight: 0
 		}
 	},
-
-
-    methods: {
-      handleTopChange(status) {
-      	console.log(44,status);
-        this.topStatus = status;
-      },
-
-      loadTop() {
-        setTimeout(() => {
-          let firstValue = this.list[0];
-          for (let i = 1; i <= 10; i++) {
-            this.list.unshift(firstValue - i);
-          }
-          this.$refs.loadmore.onTopLoaded();
-        }, 1500);
-      }
+  asyncData (context) {},
+  methods: {
+    handleTopChange(status) {
+    	console.log(44, status);
+      this.topStatus = status;
     },
-
-    created() {
-      for (let i = 1; i <= 20; i++) {
-        this.list.push(i);
-      }
-    },
-
-    mounted() {
-      this.wrapperHeight = document.documentElement.clientHeight - this.$refs.wrapper.getBoundingClientRect().top;
+    loadTop() {
+      setTimeout(() => {
+        let firstValue = this.list[0];
+        for (let i = 1; i <= 10; i++) {
+          this.list.unshift(firstValue - i);
+        }
+        this.$refs.loadmore.onTopLoaded();
+      }, 1500);
     }
+  },
+  created() {
+    for (let i = 1; i <= 20; i++) {
+      this.list.push(i);
+    }
+  },
+  mounted() {
+    this.wrapperHeight = document.documentElement.clientHeight - this.$refs.wrapper.getBoundingClientRect().top;
+  }
 }
 </script>
 <style>

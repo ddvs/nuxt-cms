@@ -1,5 +1,4 @@
 import {mapState} from 'vuex'
-import api from 'ddv-restful-api'
 import _ from 'lodash'
 
 export default{
