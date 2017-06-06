@@ -228,7 +228,7 @@ Vue.use(ElementUI)
 if (process.BROWSER_BUILD) {
   d.api.onDataClientError(function onDataClientError (e, context) {
     var toPath
-    if (e.error_id === 'NO_LOGIN' && context) {
+    if (e.errorId === 'NO_LOGIN' && context) {
       if (context.$router && context.$route) {
         toPath = '/' + d._getTypeByRoute(context.$route) + '/login'
         context.$router.push(toPath)

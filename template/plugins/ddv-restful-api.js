@@ -18,7 +18,7 @@ if (process.SERVER_BUILD) {
   // 切记，这里是服务端，只能跳转，不用想太多弹框什么的
   // 所以，仅仅处理登录这种逻辑就好
   api.onDataServerError(function onDataServerError (e, context) {
-    if (e.error_id === 'NO_LOGIN' && context.redirect) {
+    if (e.errorId === 'NO_LOGIN' && context.redirect) {
       var toPath = '/' + util._getTypeByContext(context) + '/login'
       context.redirect('302', toPath)
     } else {
