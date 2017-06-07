@@ -1,7 +1,7 @@
 <style src="mint-ui/lib/style.css" lang="css"></style>
 <style src="ddv-ui/css/wap/base.css" lang="css"></style>
 <template>
-  <div>
+  <div class="wechat-page">
     <nuxt/>
   </div>
 </template>
