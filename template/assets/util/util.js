@@ -130,6 +130,11 @@ export default{
     return '刚刚'
   },
   timeEquation (val) {
+    if (typeof val !== 'number') {
+      val = Number(val)
+    }
+
+    if (val === 0 || isNaN(val)) return '0秒'
     let time
     let cnt = Math.round(val)
     let hour = Math.floor(cnt / 3600)
