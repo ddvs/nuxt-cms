@@ -47,19 +47,21 @@ export default{
   },
   // 移除所有值为假的对象，返回对象本身
   compactObj (obj) {
-    for (var v in obj) {
-      if (obj.hasOwnProperty(v)) {
-        if (!obj[v] && obj[v] !== 0) {
-          delete obj[v]
+    if (typeof obj === 'object' && !Array.isArray(obj)) {
+      Object.keys(obj || []).forEach(key => {
+        if (!obj[key] && obj[key] !== 0) {
+          delete obj[key]
         }
-      }
+      })
+      return obj
+    } else {
+      console.error('参数有误，必须是一个对象', obj)
     }
-    return obj
   },
   // 移除所有值为假的数组，返回数组本身
   compactArray (array) {
     if (!(Array.isArray(array))) {
-      console.error('非法数组')
+      console.error('参数有误，必须是一个数组', array)
       return
     }
 
