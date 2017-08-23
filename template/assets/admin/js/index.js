@@ -4,7 +4,7 @@ import _ from 'lodash'
 export default{
   layout: 'admin',
   fetch ({ store, params }) {
-    store.commit('setBreadcrumb', ['任务管理', '首页'])
+    store.commit('admin/setBreadcrumb', ['任务管理', '首页'])
   },
   head () {
     return {
