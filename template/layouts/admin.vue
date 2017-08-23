@@ -338,7 +338,7 @@ export default {
     },
     changePage () {
       let flag = this.$route.path !== '/admin/login'
-      this.$store.commit('setLogin', flag)
+      this.$store.commit('admin/setLogin', flag)
     },
     logout () {
       this.$confirm('确认退出吗?', '提示', {

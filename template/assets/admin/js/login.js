@@ -38,7 +38,7 @@ export default{
     handleSubmit () {
       this.$refs.ruleForm.validate((valid) => {
         if (valid) {
-          this.$store.commit('setLogin', true)
+          this.$store.commit('admin/setLogin', true)
           this.$router.replace('/admin/')
         } else {
           console.log('error submit!!')
