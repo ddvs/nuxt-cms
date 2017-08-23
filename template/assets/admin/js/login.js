@@ -36,7 +36,6 @@ export default{
       this.$refs.ruleForm.resetFields()
     },
     handleSubmit () {
-      var _this = this
       this.$refs.ruleForm.validate((valid) => {
         if (valid) {
           this.$store.commit('setLogin', true)

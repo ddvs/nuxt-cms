@@ -1,7 +1,8 @@
 const store = {
+  namespaced: true,
   state: {
     isLogin: false,
-        // 面包屑
+    // 面包屑
     breadcrumb: []
   },
   mutations: {

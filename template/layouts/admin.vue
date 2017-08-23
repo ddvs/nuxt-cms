@@ -184,7 +184,13 @@
 <template>
   <div class="ddv-management-system">
     <el-row class="panels">
-      <admin-header :fullTodo="fullTodo" title="屏趣" type-name="管理后台" logo="/logo.png" user="管理员" :logout="logout"/>
+      <admin-header
+        :fullTodo="fullTodo"
+        title="ddv"
+        type-name="管理后台"
+        logo="/logo.png"
+        user="管理员"
+        :logout="logout"/>
       <el-col :span="24" class="panel-center clearfix">
         <admin-sidebar :isFullScreen="isFullScreen">
           <el-menu theme="dark" :router="true" :unique-opened="true" :default-active="$route.path">
@@ -216,16 +222,68 @@
 <script>
 
 import Vue from 'vue'
-import ElementUI from 'element-ui'
 import { mapState } from 'vuex'
 import d from 'ddv-util'
 // 头部-侧边栏-面包屑
 import { adminHeader, adminSidebar, adminBreadcrumb } from 'ddv-ui'
+// 只全局安装常用组件
+import {
+    Loading,
+    MessageBox,
+    Message,
+    Notification,
+    Form,
+    FormItem,
+    Input,
+    Menu,
+    MenuItem,
+    TabPane,
+    Table,
+    TableColumn,
+    Breadcrumb,
+    BreadcrumbItem,
+    Button,
+    ButtonGroup,
+    Checkbox,
+    CheckboxButton,
+    CheckboxGroup,
+    Col,
+    Collapse,
+    CollapseItem,
+    Row
+  } from 'element-ui'
+
 
 Vue.filter('d', d)
-Vue.use(ElementUI)
+Vue.prototype.$loading = Loading.service
+Vue.prototype.$msgbox = MessageBox
+Vue.prototype.$alert = MessageBox.alert
+Vue.prototype.$confirm = MessageBox.confirm
+Vue.prototype.$prompt = MessageBox.prompt
+Vue.prototype.$notify = Notification
+Vue.prototype.$message = Message
 
-if (process.BROWSER_BUILD) {
+Vue.use(Form)
+Vue.use(FormItem)
+Vue.use(Input)
+Vue.use(Menu)
+Vue.use(MenuItem)
+Vue.use(TabPane)
+Vue.use(Table)
+Vue.use(TableColumn)
+Vue.use(Breadcrumb)
+Vue.use(BreadcrumbItem)
+Vue.use(Button)
+Vue.use(ButtonGroup)
+Vue.use(Checkbox)
+Vue.use(CheckboxButton)
+Vue.use(CheckboxGroup)
+Vue.use(Col)
+Vue.use(Collapse)
+Vue.use(CollapseItem)
+Vue.use(Row)
+
+if (process.browser) {
   d.api.onDataClientError(function onDataClientError (e, context) {
     var toPath
     if (e.errorId === 'NO_LOGIN' && context) {
@@ -239,7 +297,7 @@ if (process.BROWSER_BUILD) {
         throw e
       }
     } else {
-      ElementUI.MessageBox({
+      MessageBox({
         title: '警告',
         message: e.message,
         type: 'error'
@@ -252,11 +310,19 @@ export default {
   middleware: 'adminCheckLogin',
   head () {
     return {
-      title: '屏趣管理后台',
+      title: 'ddv管理后台',
       meta: [
-        {'charset': 'utf-8'},
-        {'name': 'viewport', 'content': 'width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no'},
-        {'name': 'renderer', 'content': 'webkit'}
+        {
+          'charset': 'utf-8'
+        },
+        {
+          'name': 'viewport',
+          'content': 'width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no'
+        },
+        {
+          'name': 'renderer',
+          'content': 'webkit'
+        }
       ]
     }
   },

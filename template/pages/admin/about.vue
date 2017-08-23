@@ -7,7 +7,7 @@
 <script>
 export default {
   layout:'admin',
-  fetch ({ store, params }) {
+  fetch ({store, params}) {
     store.commit('setBreadcrumb', ['任务管理', '关于'])
   },
   head(){

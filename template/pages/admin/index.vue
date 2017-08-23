@@ -68,4 +68,4 @@
 	</section>
 </template>
 
-<script src="~assets/admin/js/index.js"></script>
+<script src="~/assets/admin/js/index.js"></script>

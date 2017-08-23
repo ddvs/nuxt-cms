@@ -71,7 +71,14 @@
 
 <template>
   <div class="login-pages">
-    <el-form :model="ruleForm" :rules="rules" ref="ruleForm" label-position="left" label-width="0px" class="demo-ruleForm card-box loginform" @keyup.enter.native="handleSubmit">
+    <el-form
+      :model="ruleForm"
+      :rules="rules"
+      ref="ruleForm"
+      label-position="left"
+      label-width="0px"
+      class="demo-ruleForm card-box loginform"
+      @keyup.enter.native="handleSubmit">
       <h3 class="title">系统登录</h3>
       <el-form-item prop="account">
         <el-input type="text" v-model="ruleForm.account" auto-complete="off" placeholder="账号"></el-input>
@@ -87,4 +94,4 @@
   </div>
 </template>
 
-<script src="~assets/admin/js/login.js"></script>
+<script src="~/assets/admin/js/login.js"></script>

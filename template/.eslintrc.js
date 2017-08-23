@@ -26,6 +26,9 @@ module.exports = {
     'no-console': 2
   },
   globals: {
-    'd': true
+    'd': true,
+    'console': true,
+    'document': true,
+    'location': true
   }
 }
