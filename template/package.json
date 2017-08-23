@@ -46,7 +46,10 @@
   "standard": {
     "parser": "babel-eslint",
     "globals": [
-      "d"
+      "d",
+      "console",
+      "document",
+      "location"
     ]
   }
 }
