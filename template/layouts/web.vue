@@ -7,7 +7,7 @@
 </template>
 
 <script>
-import Vue from 'Vue'
+import Vue from 'vue'
 import d from 'ddv-util'
 import {Loading, MessageBox, Message, Notification} from 'element-ui'
 
