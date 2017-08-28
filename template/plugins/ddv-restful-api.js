@@ -13,7 +13,7 @@ util._getTypeByRoute = function (route) {
   var type = pathArr[1] || 'pc'
   return type
 }
-if (process.SERVER_BUILD) {
+if (process.server) {
   // 服务端错误处理
   // 切记，这里是服务端，只能跳转，不用想太多弹框什么的
   // 所以，仅仅处理登录这种逻辑就好
@@ -27,6 +27,6 @@ if (process.SERVER_BUILD) {
   })
 }
 // 客户端需要配置一些，服务器已经在启动的时候配置了
-if (process.BROWSER_BUILD) {
+if (process.browser) {
   require('../api.config')
 }
