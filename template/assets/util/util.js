@@ -8,6 +8,8 @@ const EMAIL_REGEXP = /^([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\
 // 身份证
 const DICARD_REGEXP = /^(^[1-9]\d{7}((0\d)|(1[0-2]))(([0|1|2]\d)|3[0-1])\d{3}$)|(^[1-9]\d{5}[1-9]\d{3}((0\d)|(1[0-2]))(([0|1|2]\d)|3[0-1])((\d{4})|\d{3}[Xx])$)$/
 
+import sort from '~/assets/util/sort.js'
+
 export default{
   // 货币格式化
   formatCurrency (num) {
