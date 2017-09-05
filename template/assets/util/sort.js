@@ -1,3 +1,4 @@
+import util from 'ddv-util'
 
 export default sort
 /**
@@ -25,9 +26,7 @@ function sort (array, opts, callback, isRec) {
   }
   let sortOrderCheck = ['asc', 'desc']
   var arr = []
-  array.forEach(item => {
-    arr.push(item)
-  })
+  util.extend(true, arr, array)
   /**
    * sortOrder 排序规则，asc是指定列按升序排列，desc则是指定列按降序排列
    * prop 排序检测key；如为一维数组则可以不传
