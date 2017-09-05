@@ -179,5 +179,6 @@ export default{
       result.push(array.slice(start, end))
     }
     return result
-  }
+  },
+  sort
 }
