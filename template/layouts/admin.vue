@@ -208,8 +208,13 @@
             </el-submenu>
           </el-menu>
         </admin-sidebar>
-        <section class="panel-content" :class="{'active':isFullScreen}">
-          <admin-breadcrumb :ground="ground" :now-page="nowPage" :breadcrumb="storeData.breadcrumb"/>
+        <section
+          class="panel-content"
+          :class="{'active':isFullScreen}">
+          <admin-breadcrumb
+            :ground="ground"
+            :now-page="nowPage"
+            :breadcrumb="storeData.breadcrumb"/>
           <el-row class="content">
             <nuxt/>
           </el-row>
@@ -228,31 +233,30 @@ import d from 'ddv-util'
 import { adminHeader, adminSidebar, adminBreadcrumb } from 'ddv-ui'
 // 只全局安装常用组件
 import {
-    Loading,
-    MessageBox,
-    Message,
-    Notification,
-    Form,
-    FormItem,
-    Input,
-    Menu,
-    MenuItem,
-    TabPane,
-    Table,
-    TableColumn,
-    Breadcrumb,
-    BreadcrumbItem,
-    Button,
-    ButtonGroup,
-    Checkbox,
-    CheckboxButton,
-    CheckboxGroup,
-    Col,
-    Collapse,
-    CollapseItem,
-    Row
-  } from 'element-ui'
-
+  Loading,
+  MessageBox,
+  Message,
+  Notification,
+  Form,
+  FormItem,
+  Input,
+  Menu,
+  MenuItem,
+  TabPane,
+  Table,
+  TableColumn,
+  Breadcrumb,
+  BreadcrumbItem,
+  Button,
+  ButtonGroup,
+  Checkbox,
+  CheckboxButton,
+  CheckboxGroup,
+  Col,
+  Collapse,
+  CollapseItem,
+  Row
+} from 'element-ui'
 
 Vue.filter('d', d)
 Vue.prototype.$loading = Loading.service

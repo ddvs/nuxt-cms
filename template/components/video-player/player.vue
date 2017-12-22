@@ -5,7 +5,7 @@
 </template>
 
 <script>
-//必需先安装videojs，-- :  $ npm install --S video.js
+// 必需先安装videojs，-- :  $ npm install --S video.js
 var videojs = require('video.js')
 
 var languages = require('./languages.js')
@@ -25,31 +25,30 @@ export default {
       vimeo: false,
       switcher: true,
       hls: true
-    },
+    }
   },
   created: function () {
     // Vue2.0 $on监听父组件命令
     if (this.$parent) {
       var _this = this
-      this.$parent.$on('playerAction', function (action, options){
-        _this.doAction(action, options);
+      this.$parent.$on('playerAction', function (action, options) {
+        _this.doAction(action, options)
       })
     }
   },
-  ready: function() {
+  ready: function () {
     if (this.options) { this.initialize() }
   },
-  mounted: function() {
+  mounted: function () {
     if (this.options) { this.initialize() }
   },
-  beforeDestroy: function() {
+  beforeDestroy: function () {
     this.dispose()
   },
   methods: {
 
     // 构建播放器
-    initialize: function() {
-
+    initialize: function () {
       // console.log('init build player')
       // init
       var options = this.options
@@ -59,13 +58,12 @@ export default {
       if (options.vimeo) require('videojs-vimeo')
       if (options.switcher) require('videojs-resolution-switcher')
 
-
       // start_time
       options.start = options.start || 0
       // is_live?
-      options.live  = options.live || false
+      options.live = options.live || false
       // player_src
-      options.source  = options.source || false
+      options.source = options.source || false
       // playbackRates [0.7, 1.0, 1.5, 2.0]
       options.playbackRates = options.playbackRates || false
       // player defaultSrcReId
@@ -73,7 +71,7 @@ export default {
       // default muted
       options.muted = options.muted || false
       // playsinline
-      options.playsinline = options.playsinline !== undefined ? options.playsinline : true;
+      options.playsinline = options.playsinline !== undefined ? options.playsinline : true
 
       // 自定义事件名称
       var customEventName = options.customEventName || this.customEventName
@@ -84,7 +82,7 @@ export default {
       } else {
         if (options.source instanceof Array) {
           for (var i = 0, length = options.source.length; i < length; i++) {
-            var item = options.source[i];
+            var item = options.source[i]
             if (!item.src) {
               this.dispose()
               return console.warn('video resource is illegitimate')
@@ -122,7 +120,7 @@ export default {
         'controls': options.controls !== undefined ? options.controls : true,
         'autoplay': options.autoplay !== undefined ? options.autoplay : true,
         'preload': options.preload || 'auto',
-        'poster': options.poster ||  '',
+        'poster': options.poster || '',
         'width': options.width || '100%',
         'height': options.height || 360,
         'fluid': options.fluid || false,
@@ -131,7 +129,7 @@ export default {
         'techOrder': options.techOrder || ['html5', 'flash'],
         'flash': { hls: { withCredentials: false }},
         'html5': { hls: { withCredentials: false }},
-        'youtube': { "ytControls": options.ytControls ? Number(options.ytControls) : 0 }
+        'youtube': { 'ytControls': options.ytControls ? Number(options.ytControls) : 0 }
       }
 
       // 添加指定语言
@@ -140,16 +138,15 @@ export default {
 
       // 是否应用IOS下的禁止自动全屏
       var playsinline = options.playsinline
-      playsinline && (this.$el.children[0].setAttribute('playsinline', playsinline),this.$el.children[0].setAttribute('webkit-playsinline', playsinline))
+      playsinline && (this.$el.children[0].setAttribute('playsinline', playsinline), this.$el.children[0].setAttribute('webkit-playsinline', playsinline))
 
       // 是否适用youtube
       // if (video_options.techOrder.indexOf('youtube') > -1) require('videojs-youtube')
 
       // 非直播情况
       if (!options.live) {
-
         // 单独播放资源
-        if (!!options.source.src) {
+        if (options.source.src) {
           video_options.sources = [options.source]
 
         // 多播放源切换
@@ -165,13 +162,12 @@ export default {
       // 实例化播放器
       var _this = this
       this.player = null
-      this.player = videojs(this.$el.children[0], video_options, function() {
-
+      this.player = videojs(this.$el.children[0], video_options, function () {
         // 是否应用多版本切换清晰度
         if (!options.live) {
-          if (!!options.source.length) {
+          if (options.source.length) {
             this.updateSrc(options.source)
-            this.on('resolutionchange', function(){
+            this.on('resolutionchange', function () {
               _this.$emit && _this.$emit(customEventName, { resolutionchange: this.src() })
               _this.$dispatch && _this.$dispatch(customEventName, { resolutionchange: this.src() })
             })
@@ -179,7 +175,6 @@ export default {
         }
 
         if (options.live) {
-
           // console.log('live video', this, options.source)
           this.src(options.source)
 
@@ -194,50 +189,50 @@ export default {
         }
 
         // 监听播放
-        this.on('play', function() {
+        this.on('play', function () {
           _this.$emit && _this.$emit(customEventName, { play: true })
           _this.$dispatch && _this.$dispatch(customEventName, { play: true })
         })
 
         // 监听暂停
-        this.on('pause', function() {
+        this.on('pause', function () {
           _this.$emit && _this.$emit(customEventName, { pause: true })
           _this.$dispatch && _this.$dispatch(customEventName, { pause: true })
         })
 
         // 监听结束
-        this.on('ended', function() {
+        this.on('ended', function () {
           _this.$emit && _this.$emit(customEventName, { ended: true })
           _this.$dispatch && _this.$dispatch(customEventName, { ended: true })
         })
 
         // 元文件信息
-        this.on('loadeddata', function() {
+        this.on('loadeddata', function () {
           if (!options.live && !!options.start) this.currentTime(options.start)
           this.muted(_this.options.muted)
           _this.$emit && _this.$emit(customEventName, { loadeddata: true })
           _this.$dispatch && _this.$dispatch(customEventName, { loadeddata: true })
         })
 
-        this.on('waiting', function() {
+        this.on('waiting', function () {
           _this.$emit && _this.$emit(customEventName, { waiting: true })
           _this.$dispatch && _this.$dispatch(customEventName, { waiting: true })
         })
 
-        this.on('playing', function() {
+        this.on('playing', function () {
           _this.$emit && _this.$emit(customEventName, { playing: true })
           _this.$dispatch && _this.$dispatch(customEventName, { playing: true })
         })
 
         // 监听时间
-        this.on('timeupdate', function() {
+        this.on('timeupdate', function () {
           _this.$emit && _this.$emit(customEventName, { currentTime: this.currentTime() })
           _this.$dispatch && _this.$dispatch(customEventName, { currentTime: this.currentTime() })
         })
       })
     },
     // 释放播放器
-    dispose: function() {
+    dispose: function () {
       if (!!this.player && !!videojs) {
         // this.player.dispose()
         this.player.pause && this.player.pause()
@@ -246,10 +241,10 @@ export default {
       }
     },
     // 操作播放器
-    doAction: function(action, options) {
+    doAction: function (action, options) {
       // console.log(action)
       if (!this.player) return
-      if (action == 'sliderDrag') this.player.currentTime(options.currentTime);
+      if (action == 'sliderDrag') this.player.currentTime(options.currentTime)
       if (action == 'play') this.player.play()
       if (action == 'pause') this.player.pause()
       if (action == 'refresh') {
@@ -262,7 +257,7 @@ export default {
   },
   // Vue1.X监听父组件传播下来的事件
   events: {
-    'playerAction': function(action) {
+    'playerAction': function (action) {
       this.doAction(action)
     }
   },

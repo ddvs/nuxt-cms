@@ -7,13 +7,13 @@
 <script>
 export default {
   props: ['value'],
-  data(){
+  data () {
     return {
       innerText: this.value
     }
   },
-  methods:{
-    changeText(){
+  methods: {
+    changeText () {
       this.innerText = this.$el.innerHTML
       this.$emit('input', this.innerText)
     }

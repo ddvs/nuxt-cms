@@ -1,4 +1,4 @@
-<style src="element-ui/lib/theme-default/index.css" lang="css"></style>
+<!-- <style src="element-ui/lib/theme-default/index.css" lang="css"></style> -->
 
 <template>
   <div>

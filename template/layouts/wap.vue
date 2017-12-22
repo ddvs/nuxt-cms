@@ -13,7 +13,8 @@ import d from 'ddv-util'
 Vue.filter('d', d)
 
 if (process.browser) {
-  require('~/plugins/flexible')
+  require('amfe-flexible')
+  /* require('~/plugins/flexible') */
 }
 
 if (process.browser) {

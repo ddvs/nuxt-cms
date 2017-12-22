@@ -5,7 +5,7 @@ module.exports = {
      ** Headers of the page
      */
   head: {
-    title: 'ddv',
+    title: 'ddv-template',
     meta: [
       {charset: 'utf-8'},
       {'http-equiv': 'content-type', 'content': 'text/html;charset=utf-8'},
@@ -19,32 +19,51 @@ module.exports = {
   build: {
     autoprefixer: false,
     postcss: [
-      require('postcss-bem')({
-        defaultNamespace: undefined, // default namespace to use, none by default
-        style: 'suit' // suit or bem, suit by default
+      require('postcss-salad')({
+        'browsers': ['last 3 versions'],
+        'features': {
+          'autoprefixer': false,
+          'bem': {
+            'shortcuts': {
+              'component': 'b',
+              'modifier': 'm',
+              'descendent': 'e'
+            },
+            'separators': {
+              'descendent': '__',
+              'modifier': '--'
+            }
+          }
+        }
+      }),
+      require('postcss-flexible')({
+        remUnit: 75
       }),
       require('postcss-cssnext')({
         browsers: ['last 3 versions']
       })
     ],
     vendor: ['ddv-restful-api', 'ddv-restful-ws-api', 'ddv-util'],
-    extractCSS: true,
+    extractCSS: {
+      allChunks: true
+    },
     babel: {
       plugins: [
         [
           'component',
           {
             libraryName: 'element-ui',
-            styleLibraryName: 'theme-default'
+            styleLibraryName: '~theme'
+            // styleLibraryName: 'theme-default'
           }
         ]
       ]
-    },
-    extend (config, {isClient}) {
-      if (isClient) {
-        // config.entry.vendor.push('babel-polyfill')
-      }
     }
+    // extend (config, {isClient}) {
+    //   if (isClient) {
+    //     // config.entry.vendor.push('babel-polyfill')
+    //   }
+    // }
   },
   plugins: ['~/plugins/ddv-restful-api', '~/plugins/ddv-util'],
   /*
@@ -54,5 +73,7 @@ module.exports = {
   /*
      ** Customize the progress-bar color
      */
-  loading: {color: '#3B8070'}
+  loading: {
+    color: '#3B8070'
+  }
 }

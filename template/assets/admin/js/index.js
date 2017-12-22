@@ -12,9 +12,9 @@ export default{
     }
   },
   methods: {
-  	open () {
-    	this.$message('这是一条消息提示')
-  	}
+    open () {
+      this.$message('这是一条消息提示')
+    }
   },
   computed: mapState({
     storeData: state => state.admin
