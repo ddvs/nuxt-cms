@@ -1,4 +1,7 @@
-
+<style src="element-theme-default/lib/loading.css"></style>
+<style src="element-theme-default/lib/message-box.css"></style>
+<style src="element-theme-default/lib/message.css"></style>
+<style src="element-theme-default/lib/notification.css"></style>
 <template>
   <div>
     <nuxt/>
