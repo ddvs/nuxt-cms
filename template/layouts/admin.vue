@@ -1,4 +1,4 @@
-<style src="element-ui/lib/theme-default/index.css" lang="css"></style>
+<style src="element-theme-default" lang="css"></style>
 <style src="bootstrap/dist/css/bootstrap.min.css" lang="css"></style>
 <style src="font-awesome/css/font-awesome.min.css" lang="css"></style>
 <style src="ddv-ui/css/admin/core.css" lang="css"></style>

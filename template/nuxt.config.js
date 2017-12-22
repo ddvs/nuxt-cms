@@ -52,8 +52,8 @@ module.exports = {
         [
           'component',
           {
-            libraryName: 'element-ui',
-            styleLibraryName: '~theme'
+            libraryName: 'element-ui'
+            // styleLibraryName: '~theme'
             // styleLibraryName: 'theme-default'
           }
         ]
