@@ -1,4 +1,4 @@
-<style src="element-theme-default" lang="css"></style>
+<style src="element-ui/lib/theme-chalk/index.css" lang="css"></style>
 <style src="bootstrap/dist/css/bootstrap.min.css" lang="css"></style>
 <style src="font-awesome/css/font-awesome.min.css" lang="css"></style>
 <style src="ddv-ui/css/admin/core.css" lang="css"></style>
@@ -225,7 +225,6 @@
 </template>
 
 <script>
-
 import Vue from 'vue'
 import { mapState } from 'vuex'
 import d from 'ddv-util'
@@ -241,7 +240,9 @@ import {
   FormItem,
   Input,
   Menu,
+  Submenu,
   MenuItem,
+  MenuItemGroup,
   TabPane,
   Table,
   TableColumn,
@@ -271,7 +272,9 @@ Vue.use(Form)
 Vue.use(FormItem)
 Vue.use(Input)
 Vue.use(Menu)
+Vue.use(Submenu)
 Vue.use(MenuItem)
+Vue.use(MenuItemGroup)
 Vue.use(TabPane)
 Vue.use(Table)
 Vue.use(TableColumn)
