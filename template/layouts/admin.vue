@@ -76,7 +76,7 @@
 
     .sidebars{
       height: 100%;
-      overflow: auto;
+      /* overflow: auto; */
       vertical-align: top;
       width: 260px;
       background-color: #263238;
@@ -88,7 +88,7 @@
       }
 
       .el-menu--horizontal.el-menu--dark .el-submenu .el-menu-item.is-active, .el-menu-item.is-active{
-        background-color: #26a69a;
+        background-color: #26a69a !important;
         color: #fff;
       }
     }
@@ -102,12 +102,7 @@
     }
 
     .sidebars-main.active{
-      transform: translate3d(-280px,0,0);
-      -moz-transform: translate3d(-280px,0,0);
-      -webkit-transform: translate3d(-280px,0,0);
-      -o-transform: translate3d(-280px,0,0);
-      opacity: 0;
-      -ms-opacity:0;
+      width: 64px;
     }
 
     .panel-content{
@@ -128,7 +123,7 @@
     }
 
     .panel-content.active{
-      padding-left: 0px !important;
+      padding-left: 64px !important;
     }
 
     .h37{
@@ -179,6 +174,9 @@
       background-color: black;
     }
   }
+  .overflow-visible {
+    overflow: visible;
+  }
 </style>
 
 <template>
@@ -193,11 +191,18 @@
         :logout="logout"/>
       <el-col :span="24" class="panel-center clearfix">
         <admin-sidebar :isFullScreen="isFullScreen">
-          <el-menu theme="dark" :router="true" :unique-opened="true" :default-active="$route.path">
+          <el-menu
+            :router="true"
+            :unique-opened="true"
+            :default-active="$route.path"
+            background-color="#263238"
+            text-color="#fff"
+            :collapse="true"
+            >
             <el-submenu index="1">
               <template slot="title">
                 <i class="el-icon-message"></i>
-                菜单
+                <span slot="title">菜单</span>
               </template>
               <el-menu-item index="/admin/">
                 首页
