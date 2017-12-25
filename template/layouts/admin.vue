@@ -229,7 +229,10 @@ import Vue from 'vue'
 import { mapState } from 'vuex'
 import d from 'ddv-util'
 // 头部-侧边栏-面包屑
-import { adminHeader, adminSidebar, adminBreadcrumb } from 'ddv-ui'
+// import { adminHeader, adminSidebar, adminBreadcrumb } from 'ddv-ui'
+import adminHeader from '~/components/admin/common/admin-header'
+import adminSidebar from '~/components/admin/common/admin-sidebar'
+import adminBreadcrumb from '~/components/admin/common/admin-breadcrumb'
 // 只全局安装常用组件
 import {
   Loading,
