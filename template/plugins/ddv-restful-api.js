@@ -1,5 +1,6 @@
 import api from 'ddv-restful-api'
 import util from 'ddv-util'
+require('../api.config')
 
 util._getTypeByContext = function (context) {
   var path = (context && context.route && context.route.path) || ''
@@ -25,8 +26,4 @@ if (process.server) {
       throw e
     }
   })
-}
-// 客户端需要配置一些，服务器已经在启动的时候配置了
-if (process.browser) {
-  require('../api.config')
 }
