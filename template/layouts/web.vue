@@ -1,7 +1,8 @@
-<style src="element-theme-default/lib/loading.css"></style>
-<style src="element-theme-default/lib/message-box.css"></style>
-<style src="element-theme-default/lib/message.css"></style>
-<style src="element-theme-default/lib/notification.css"></style>
+<style src="element-ui/lib/theme-chalk/base.css"></style>
+<style src="element-ui/lib/theme-chalk/loading.css"></style>
+<style src="element-ui/lib/theme-chalk/message-box.css"></style>
+<style src="element-ui/lib/theme-chalk/message.css"></style>
+<style src="element-ui/lib/theme-chalk/notification.css"></style>
 <template>
   <div>
     <nuxt/>
