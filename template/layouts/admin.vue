@@ -197,7 +197,7 @@
             :default-active="$route.path"
             background-color="#263238"
             text-color="#fff"
-            :collapse="true"
+            :collapse="isFullScreen"
             >
             <el-submenu index="1">
               <template slot="title">

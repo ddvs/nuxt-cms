@@ -81,12 +81,12 @@
       @keyup.enter.native="handleSubmit">
       <h3 class="title">系统登录</h3>
       <el-form-item prop="account">
-        <el-input type="text" v-model="ruleForm.account" auto-complete="off" placeholder="账号"></el-input>
+        <el-input type="text" v-model="ruleForm.account" auto-complete="off" placeholder="账号" ref="account"/>
       </el-form-item>
-      <el-form-item prop="checkPass">
-        <el-input type="password" v-model="ruleForm.checkPass" auto-complete="off" placeholder="密码"></el-input>
+      <el-form-item prop="passWord">
+        <el-input type="password" v-model="ruleForm.passWord" auto-complete="off" placeholder="密码" ref="passWord"/>
       </el-form-item>
-      <el-checkbox v-model="checked" checked style="margin:0px 0px 35px 0px;">记住密码</el-checkbox>
+      <!-- <el-checkbox v-model="checked" checked style="margin:0px 0px 35px 0px;">记住密码</el-checkbox> -->
       <el-form-item>
         <el-button type="primary" class="col-xs-12" @click.native.prevent="handleSubmit">登录</el-button>
       </el-form-item>

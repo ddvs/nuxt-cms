@@ -20,7 +20,7 @@ export default{
             trigger: 'blur'
           }
         ],
-        checkPass: [
+        passWord: [
           {
             required: true,
             message: '请输入密码',
@@ -41,8 +41,11 @@ export default{
           this.$store.commit('admin/setLogin', true)
           this.$router.replace('/admin/')
         } else {
-          console.log('error submit!!')
-          return false
+          if (!this.ruleForm.account) {
+            this.$refs.account.focus()
+          } else if (!this.ruleForm.passWord) {
+            this.$refs.passWord.focus()
+          }
         }
       })
     }
