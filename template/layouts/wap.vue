@@ -14,8 +14,8 @@ import d from 'ddv-util'
 Vue.filter('d', d)
 
 if (process.browser) {
-  require('amfe-flexible')
-  /* require('~/plugins/flexible') */
+  /* require('amfe-flexible') */
+  require('~/plugins/flexible')
 }
 
 if (process.browser) {
@@ -46,10 +46,10 @@ export default {
         {
           'charset': 'utf-8'
         },
-        {
+        /* {
           'name': 'viewport',
           'content': 'width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no'
-        },
+        }, */
         {
           'name': 'renderer',
           'content': 'webkit|ie-stand|ie-comp'
@@ -70,10 +70,10 @@ export default {
           'name': 'msapplication-tap-highlight',
           'content': 'no'
         },
-        {
+        /* {
           'name': 'flexible',
           'content': 'initial-dpr=2,maximum-dpr=3'
-        },
+        }, */
         {
           'name': 'screen-orientation',
           'content': 'portrait'
