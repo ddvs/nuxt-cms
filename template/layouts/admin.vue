@@ -311,7 +311,7 @@ if (process.browser) {
       } else {
         throw e
       }
-    } else if (e.errorId === 'UNKNOWN ERROR') {
+    } else if (e.errorId === 'UNKNOWN_ERROR') {
       MessageBox({
         title: '警告',
         message: '网络错误',

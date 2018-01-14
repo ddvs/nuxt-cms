@@ -23,7 +23,7 @@ if (process.server) {
       var toPath = '/' + util._getTypeByContext(context) + '/login'
       context.redirect('302', toPath)
     } else {
-      if (e.errorId === 'UNKNOWN ERROR') {
+      if (e.errorId === 'UNKNOWN_ERROR') {
         e.message = '网络错误'
       }
       throw e

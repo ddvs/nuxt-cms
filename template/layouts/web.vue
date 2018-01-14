@@ -37,7 +37,7 @@ if (process.browser) {
       } else {
         throw e
       }
-    } else if (e.errorId === 'UNKNOWN ERROR') {
+    } else if (e.errorId === 'UNKNOWN_ERROR') {
       MessageBox('网络错误', '错误')
     } else {
       MessageBox(e.message, '错误')
