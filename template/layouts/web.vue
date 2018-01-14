@@ -12,7 +12,7 @@
 <script>
 import Vue from 'vue'
 import d from 'ddv-util'
-import {Loading, MessageBox, Message, Notification} from 'element-ui'
+import { Loading, MessageBox, Message, Notification } from 'element-ui'
 
 Vue.filter('d', d)
 
@@ -37,6 +37,8 @@ if (process.browser) {
       } else {
         throw e
       }
+    } else if (e.errorId === 'UNKNOWN ERROR') {
+      MessageBox('网络错误', '错误')
     } else {
       MessageBox(e.message, '错误')
     }

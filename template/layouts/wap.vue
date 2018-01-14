@@ -9,7 +9,7 @@
 
 <script>
 import Vue from 'vue'
-import {MessageBox} from 'mint-ui'
+import { MessageBox } from 'mint-ui'
 import d from 'ddv-util'
 Vue.filter('d', d)
 
@@ -31,6 +31,8 @@ if (process.browser) {
       } else {
         throw e
       }
+    } else if (e.errorId === 'UNKNOWN ERROR') {
+      MessageBox('网络错误', '错误')
     } else {
       MessageBox('错误', e.message)
     }

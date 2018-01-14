@@ -13,3 +13,18 @@ api.setOnAccessKeyTrySum(3)
 session.setLongStorage(false)
 // 设置初始化session的path，默认/session/init
 session.setSessionInitPath('/session/init')
+
+// api.setOnModelInitend(function (model) {
+//   var host
+//   if (typeof location !== 'undefined') {
+//     host = location && location.host
+//   }
+//   if ((!host) && model.requests && model.requests.headers) {
+//     host = model.requests.headers.host || host
+//   }
+//   if (host) {
+//     model.headers({
+//       'x-ddv-from-host': host
+//     })
+//   }
+// })
