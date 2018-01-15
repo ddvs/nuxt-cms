@@ -1,6 +1,7 @@
 <style src="mint-ui/lib/font/style.css" lang="css"></style>
 <style src="mint-ui/lib/message-box/style.css" lang="css"></style>
 <style src="ddv-ui/css/wap/base.css" lang="css"></style>
+<!-- 这个是图片、容器指令用到的css，可合并到base.css -->
 <style src="~/assets/css/flex.css" lang="css"></style>
 <template>
   <div class="wechat-page">
