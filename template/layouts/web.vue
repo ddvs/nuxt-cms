@@ -3,6 +3,7 @@
 <style src="element-ui/lib/theme-chalk/message-box.css"></style>
 <style src="element-ui/lib/theme-chalk/message.css"></style>
 <style src="element-ui/lib/theme-chalk/notification.css"></style>
+<style src="~/assets/css/flex.css" lang="css"></style>
 <template>
   <div>
     <nuxt/>

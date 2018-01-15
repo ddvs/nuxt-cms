@@ -64,7 +64,7 @@ module.exports = {
     //   }
     // }
   },
-  plugins: ['~/plugins/ddv-restful-api', '~/plugins/ddv-util'],
+  plugins: ['~/plugins/ddv-restful-api', '~/plugins/ddv-util', '~/plugins/inject'],
   /*
      ** Global CSS
      */

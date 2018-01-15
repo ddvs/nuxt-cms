@@ -1,6 +1,7 @@
 <style src="mint-ui/lib/font/style.css" lang="css"></style>
 <style src="mint-ui/lib/message-box/style.css" lang="css"></style>
 <style src="ddv-ui/css/wap/base.css" lang="css"></style>
+<style src="~/assets/css/flex.css" lang="css"></style>
 <template>
   <div class="wechat-page">
     <nuxt/>
