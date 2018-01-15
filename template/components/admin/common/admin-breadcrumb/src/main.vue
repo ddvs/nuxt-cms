@@ -10,11 +10,16 @@
         </h4>
       </div>
     </div>
-    <ddv-ui-breadcrumb separator="/" class="breadcrumb-line pl20 pr20 h37">
+    <ddv-ui-breadcrumb
+      separator="/"
+      class="breadcrumb-line pl20 pr20 h37">
       <ddv-ui-breadcrumb-item :to="{ path: '/admin/' }">
         <i class="fa fa-home mr10"></i>首页
       </ddv-ui-breadcrumb-item>
-      <ddv-ui-breadcrumb-item v-for="(data,index) in breadcrumb" :to="{path:data.path}" :key="index">
+      <ddv-ui-breadcrumb-item
+        v-for="(data,index) in breadcrumb"
+        :to="{path:data.path}"
+        :key="index">
         <span v-text="data.name"></span>
       </ddv-ui-breadcrumb-item>
     </ddv-ui-breadcrumb>
@@ -22,8 +27,8 @@
 </template>
 
 <script>
-  import ddvUiBreadcrumb from './ddv-ui-breadcrumb'
-  import ddvUiBreadcrumbItem from './ddv-ui-breadcrumb-item'
+import ddvUiBreadcrumb from './ddv-ui-breadcrumb'
+import ddvUiBreadcrumbItem from './ddv-ui-breadcrumb-item'
 export default {
   name: 'adminBreadcrumb',
   props: {
@@ -38,7 +43,7 @@ export default {
       default: []
     }
   },
-  components:{
+  components: {
     ddvUiBreadcrumb,
     ddvUiBreadcrumbItem
   }
