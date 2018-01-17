@@ -1,6 +1,6 @@
 import Vue from 'vue'
 let filters = { // 过滤器
-  time: (val, rule = 'Y-d-m h:m:s') => {
+  time: (val, rule = 'Y-m-d h:m:s') => {
     return d.date(rule, val)
   }
 }
