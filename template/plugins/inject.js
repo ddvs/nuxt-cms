@@ -11,20 +11,23 @@ Object.keys(filters).forEach(key => {
 
 let directive = { // 指令
   center: { // 图片居中切割
-    inserted: function (el) {
-      el.onload = function () {
-        let w = this.naturalWidth
-        let h = this.naturalHeight
-        let pW = this.parentNode.offsetWidth
-        let pH = this.parentNode.offsetHeight
+    inserted: function (el, binding) {
+      el.onload = (e) => {
+        let w = el.naturalWidth
+        let h = el.naturalHeight
+        let pW = el.parentNode.offsetWidth
+        let pH = el.parentNode.offsetHeight
         let ratio = w / h
         let pRatio = pW / pH
         if (pRatio > ratio) {
-          this.classList.remove('Hcenter')
-          this.classList.add('Vcenter')
+          el.classList.remove('Hcenter')
+          el.classList.add('Vcenter')
         } else {
-          this.classList.remove('Vcenter')
-          this.classList.add('Hcenter')
+          el.classList.remove('Vcenter')
+          el.classList.add('Hcenter')
+        }
+        if (typeof binding.value === 'function') { // 轮播图处理
+          binding.value(true)
         }
       }
     }
