@@ -28,12 +28,12 @@
 </style>
 
 <script>
-  import ddvUiCol from './ddv-ui-col'
+import ddvUiCol from './ddv-ui-col'
 export default{
-    components:{
-      ddvUiCol,
-//      ddvUiTooltip
-    },
+  components: {
+    ddvUiCol
+    // ddvUiTooltip
+  },
   name: 'adminHeader',
   props: {
     'fullTodo': {
