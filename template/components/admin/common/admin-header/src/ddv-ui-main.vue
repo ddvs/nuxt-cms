@@ -2,10 +2,10 @@
   <ddv-ui-col :span="24" class="panel-top">
     <ddv-ui-col :span="18" class="f24">
       <div class="navbar-header pull-left pl20">
-        <img :src="logo" alt="" class="logo round">
+        <img :src="logo" alt="" class="logo">
         <span>
           <span v-text="title"></span>
-          <i style="color:#20a0ff">{{typeName}}</i>
+          <i style="color:#20a0ff"></i>
         </span>
       </div>
       <div class="pull-left pl20 pr20 pointer f20 navbar-header-btn" @click="fullTodo">
@@ -14,8 +14,10 @@
     </ddv-ui-col>
     <ddv-ui-col :span="6">
       <div class="clearfix pull-right pointer admin-logout" @click="logout">
-        {{user}}
-        <span>退出</span>
+        <span v-show="user">{{user}}</span>
+        <el-tooltip class="item" effect="dark" content="退出" placement="bottom">
+          <span class="ml10">退出</span>
+        </el-tooltip>
       </div>
     </ddv-ui-col>
   </ddv-ui-col>

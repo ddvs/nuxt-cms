@@ -56,8 +56,12 @@
     }
 
     .logo {
-      width: 40px;
+      // width: 40px;
+      // float: left;
+      // margin: 10px 10px 10px 18px;
+      height: 40px;
       float: left;
+      width: auto;
       margin: 10px 10px 10px 18px;
     }
 
@@ -264,7 +268,8 @@ import {
   Col,
   Collapse,
   CollapseItem,
-  Row
+  Row,
+  tooltip
 } from 'element-ui'
 
 Vue.filter('d', d)
@@ -297,6 +302,7 @@ Vue.use(Col)
 Vue.use(Collapse)
 Vue.use(CollapseItem)
 Vue.use(Row)
+Vue.use(tooltip)
 
 if (process.browser) {
   d.api.onDataClientError(function onDataClientError (e, context) {
