@@ -77,7 +77,6 @@ module.exports = {
   },
   modules: ['@nuxtjs/component-cache'],
   router: {
-    middleware: ['get-seo', 'getBaseData'],
     scrollBehavior (to, from, savedPosition) {
       if (savedPosition) {
         return savedPosition
