@@ -74,5 +74,37 @@ module.exports = {
      */
   loading: {
     color: '#3B8070'
+  },
+  modules: ['@nuxtjs/component-cache'],
+  router: {
+    middleware: ['get-seo', 'getBaseData'],
+    scrollBehavior (to, from, savedPosition) {
+      if (savedPosition) {
+        return savedPosition
+      } else {
+        let position = {}
+        // 目标页面子组件少于两个
+        if (to.matched.length < 2) {
+          // 滚动至页面顶部
+          position = {
+            x: 0,
+            y: 0
+          }
+        } else if (to.matched.some((r) => r.components.default.options.scrollToTop)) {
+          // 如果目标页面子组件中存在配置了scrollToTop为true
+          position = {
+            x: 0,
+            y: 0
+          }
+        }
+        // 如果目标页面的url有锚点,  则滚动至锚点所在的位置
+        if (to.hash) {
+          position = {
+            selector: to.hash
+          }
+        }
+        return position
+      }
+    }
   }
 }

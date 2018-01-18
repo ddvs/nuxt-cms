@@ -14,6 +14,7 @@
     "lint": "eslint --ext .js,.vue --ignore-path .gitignore .eslintignore /plugins/flexible.js ."
   },
   "dependencies": {
+    "@nuxtjs/component-cache": "~1.1.1",
     "amfe-flexible": "^2.2.1",        
     "babel-polyfill": "^6.23.0",
     "bootstrap": "^3.3.7",        
