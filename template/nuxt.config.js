@@ -11,7 +11,7 @@ module.exports = {
       {'http-equiv': 'X-UA-Compatible', 'content': 'IE=edge,chrome=1'}
     ],
     link: [
-      {rel: 'icon', type: 'image/x-icon', href: 'favicon.ico'}
+      {rel: 'icon', type: 'image/x-icon', href: '/favicon.ico'}
     ]
   },
   css: [],
