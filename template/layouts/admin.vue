@@ -157,26 +157,26 @@
       box-shadow: 0 1px 0 rgba(255,255,255,0.05) inset !important;
     }
 
-    ::-webkit-scrollbar {
-      width: 8px;
-      max-height: 8px;
-    }
-    ::-webkit-scrollbar-track {
-      background-color: #fff;
-    }
+    // ::-webkit-scrollbar {
+    //   width: 8px;
+    //   max-height: 8px;
+    // }
+    // ::-webkit-scrollbar-track {
+    //   background-color: #fff;
+    // }
 
-    ::-webkit-scrollbar-thumb {
-      background-color: rgba(0, 0, 0, 0.2);
-      border-radius: 4px;
-    }
+    // ::-webkit-scrollbar-thumb {
+    //   background-color: rgba(0, 0, 0, 0.2);
+    //   border-radius: 4px;
+    // }
 
-    ::-webkit-scrollbar-button {
-      background-color: #7c2929;
-    }
+    // ::-webkit-scrollbar-button {
+    //   background-color: #7c2929;
+    // }
 
-    ::-webkit-scrollbar-corner {
-      background-color: black;
-    }
+    // ::-webkit-scrollbar-corner {
+    //   background-color: black;
+    // }
   }
   .overflow-visible {
     overflow: visible;
