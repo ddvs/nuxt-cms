@@ -3,6 +3,12 @@
 <style src="ddv-ui/css/wap/base.css" lang="css"></style>
 <!-- 这个是图片、容器指令用到的css，可合并到base.css -->
 <style src="~/assets/css/flex.css" lang="css"></style>
+<style>
+body * {
+  max-height: 999999px;
+}
+</style>
+
 <template>
   <div class="wechat-page">
     <nuxt/>
