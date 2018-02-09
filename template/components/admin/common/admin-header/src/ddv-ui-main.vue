@@ -14,9 +14,13 @@
     </ddv-ui-col>
     <ddv-ui-col :span="6">
       <div class="clearfix pull-right pointer admin-logout" @click="logout">
-        <span v-show="user">{{user}}</span>
         <el-tooltip class="item" effect="dark" content="退出" placement="bottom">
-          <span class="ml10">退出</span>
+          <span>
+            <span v-show="user">{{user}}</span>          
+            <span class="ml10">
+              <i class="fa fa-sign-out"></i>
+            </span>
+          </span>
         </el-tooltip>
       </div>
     </ddv-ui-col>
