@@ -21,6 +21,10 @@
       opacity: 0
     }
 
+    table {
+      border-collapse: separate;
+    }
+
     .panels {
       position: absolute;
       top: 0px;
