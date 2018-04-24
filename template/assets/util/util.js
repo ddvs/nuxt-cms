@@ -10,7 +10,7 @@ const DICARD_REGEXP = /^(^[1-9]\d{7}((0\d)|(1[0-2]))(([0|1|2]\d)|3[0-1])\d{3}$)|
 
 import sort from '~/assets/util/sort.js'
 
-export default{
+export default {
   // 货币格式化
   formatCurrency (num) {
     num = num || '0'
