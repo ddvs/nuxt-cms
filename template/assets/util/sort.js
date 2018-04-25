@@ -66,20 +66,35 @@ function sort (array, opts, callback, isRec) {
   }
 }
 
-function by (name, sort) {
-  return function (o, p) {
-    var a, b
-    var flag = sort === 'desc' ? 1 : -1
-    if (o && p && ((typeof o === 'object' && o[name]) || !isNaN(o)) && ((typeof p === 'object' && p[name]) || !isNaN(p))) {
-      a = typeof o === 'object' ? parseInt(o[name]) : parseInt(o)
-      b = typeof p === 'object' ? parseInt(p[name]) : parseInt(p)
+function isNumber (data, prop) {
+  var flag = false
+
+  if (typeof data === 'object') {
+    flag = !!(Number(data[prop]) || Number(data[prop] === 0));
+  } else if (typeof data === 'number' || typeof data === 'string') {
+    flag = !!(Number(data) || Number(data === 0));
+  }
+  return flag
+}
+
+function by(name, sort) {
+  return function(o, p) {
+    var a, b;
+    var flag = sort === "desc" ? 1 : -1;
+    let oFlag = isNumber(o, name)
+    let pFlag = isNumber(p, name)
+
+    if (o && p && oFlag && pFlag) {
+      oFlag = pFlag = void 0;
+      a = typeof o === "object" ? parseInt(o[name]) : parseInt(o);
+      b = typeof p === "object" ? parseInt(p[name]) : parseInt(p);
       if (a === b) {
-        return 0
+        return 0;
       }
       if (typeof a === typeof b) {
-        return a < b ? flag : -flag
+        return a < b ? flag : -flag;
       }
-      return typeof a < typeof b ? flag : -flag
+      return typeof a < typeof b ? flag : -flag;
     }
-  }
+  };
 }
