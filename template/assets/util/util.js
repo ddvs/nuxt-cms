@@ -60,6 +60,22 @@ export default {
       console.error('参数有误，必须是一个对象', obj)
     }
   },
+  deepCopy (parent, child) { // 对象深拷贝（非构造函数）
+    let c = child || Array.isArray(parent) ? [] : {}
+    if (typeof parent !== 'object' || typeof c !== 'object') {
+      console.error('参数有误：deepCopy(Object|Array, [, Object|Array])')
+      return c
+    }
+    Object.keys(parent).forEach(key => {
+      if (typeof parent[key] === 'object') {
+        c[key] = (parent[key].constructor === Array) ? [] : {}
+        this.deepCopy(parent[key], c[key])
+      } else {
+        c[key] = parent[key]
+      }
+    })
+    return c
+  },
   // 移除所有值为假的数组，返回数组本身
   compactArray (array) {
     if (!(Array.isArray(array))) {
