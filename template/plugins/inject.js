@@ -56,6 +56,7 @@ let directive = { // 指令
     el.appendChild(div)
   },
   src: function (el, binding) {
+    if (binding.value === el.src) return
     setTimeout(() => {
       let pW = el.parentNode.offsetWidth
       let pH = el.parentNode.offsetHeight
