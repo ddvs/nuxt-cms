@@ -26,7 +26,9 @@ module.exports = {
             'shortcuts': {
               'component': 'b',
               'modifier': 'm',
-              'descendent': 'e'
+              'descendent': 'e',
+              'utility': 'util',
+              'component-namespace': 'n'
             },
             'separators': {
               'descendent': '__',
