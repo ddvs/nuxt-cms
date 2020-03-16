@@ -16,6 +16,10 @@ module.exports = {
   },
   css: [],
   build: {
+    /**
+     * @see https://zh.nuxtjs.org/api/configuration-build#publicpath
+     */
+    // publicPath: '',
     vendor: ['ddv-restful-api', 'ddv-restful-ws-api', 'ddv-util'],
     postcss: {
       plugins: {
@@ -44,12 +48,22 @@ module.exports = {
         'postcss-cssnext': {
           browsers: ['last 3 versions']
         }
+      },
+      preset: {
+        autoprefixer: {
+          grid: true
+        }
       }
     },
-    extend (config, { isClient }) {
-      if (isClient) {
-        config.entry.vendor.push('babel-polyfill')
-      }
+    // extend (config, { isClient }) {
+    //   if (isClient) {
+    //     // 为客户端打包进行手工的扩展处理
+    //     // 👇配置已不可用
+    //     // config.entry.vendor.push('babel-polyfill')
+    //   }
+    // },
+    'html.minify': {
+      removeComments: true
     }
   },
   plugins: [
