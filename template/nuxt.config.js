@@ -14,6 +14,13 @@ module.exports = {
     ]
   },
   css: [],
+  render: {
+    bundleRenderer: {
+      // 添加prefetch和preload，以加快初始页面加载时间
+      // 如果页面和路由很多的情况下可以选择关闭
+      resourceHints: true
+    }
+  },
   build: {
     /**
      * @see https://zh.nuxtjs.org/api/configuration-build#publicpath
