@@ -1,4 +1,3 @@
-
 module.exports = {
   /*
      ** Headers of the page
@@ -63,7 +62,7 @@ module.exports = {
     //   }
     // },
     'html.minify': {
-      removeComments: true
+      removeComments: process.env.NODE_ENV === 'production'
     }
   },
   plugins: [
