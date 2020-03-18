@@ -189,7 +189,6 @@
         :fullTodo="fullTodo"
         title="ddv"
         type-name="管理后台"
-        logo="/logo.png"
         user="管理员"
         :logout="logout"/>
       <el-col :span="24" class="panel-center clearfix">
@@ -241,35 +240,7 @@ import d from 'ddv-util'
 import adminHeader from '~/components/admin/common/admin-header'
 import adminSidebar from '~/components/admin/common/admin-sidebar'
 import adminBreadcrumb from '~/components/admin/common/admin-breadcrumb'
-// 只全局安装常用组件
-import {
-  Loading,
-  MessageBox,
-  Message,
-  Notification,
-  Form,
-  FormItem,
-  Input,
-  Menu,
-  Submenu,
-  MenuItem,
-  MenuItemGroup,
-  TabPane,
-  Table,
-  TableColumn,
-  Breadcrumb,
-  BreadcrumbItem,
-  Button,
-  ButtonGroup,
-  Checkbox,
-  CheckboxButton,
-  CheckboxGroup,
-  Col,
-  Collapse,
-  CollapseItem,
-  Row,
-  tooltip
-} from 'element-ui'
+import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 import 'ddv-ui/css/admin/core.css'
 import 'ddv-ui/css/admin/components.css'
@@ -277,65 +248,43 @@ import 'ddv-ui/css/admin/colors.css'
 import 'ddv-ui/css/admin/base.css'
 
 Vue.filter('d', d)
-Vue.prototype.$loading = Loading.service
-Vue.prototype.$msgbox = MessageBox
-Vue.prototype.$alert = MessageBox.alert
-Vue.prototype.$confirm = MessageBox.confirm
-Vue.prototype.$prompt = MessageBox.prompt
-Vue.prototype.$notify = Notification
-Vue.prototype.$message = Message
+Vue.use(ElementUI)
+// Vue.prototype.$loading = Loading.service
+// Vue.prototype.$msgbox = MessageBox
+// Vue.prototype.$alert = MessageBox.alert
+// Vue.prototype.$confirm = MessageBox.confirm
+// Vue.prototype.$prompt = MessageBox.prompt
+// Vue.prototype.$notify = Notification
+// Vue.prototype.$message = Message
 
-Vue.use(Form)
-Vue.use(FormItem)
-Vue.use(Input)
-Vue.use(Menu)
-Vue.use(Submenu)
-Vue.use(MenuItem)
-Vue.use(MenuItemGroup)
-Vue.use(TabPane)
-Vue.use(Table)
-Vue.use(TableColumn)
-Vue.use(Breadcrumb)
-Vue.use(BreadcrumbItem)
-Vue.use(Button)
-Vue.use(ButtonGroup)
-Vue.use(Checkbox)
-Vue.use(CheckboxButton)
-Vue.use(CheckboxGroup)
-Vue.use(Col)
-Vue.use(Collapse)
-Vue.use(CollapseItem)
-Vue.use(Row)
-Vue.use(tooltip)
-
-if (process.browser) {
-  d.api.onDataClientError(function onDataClientError (e, context) {
-    var toPath
-    if (e.errorId === 'NO_LOGIN' && context) {
-      if (context.$router && context.$route) {
-        toPath = '/' + d._getTypeByRoute(context.$route) + '/login'
-        context.$router.push(toPath)
-      } else if (context.redirect) {
-        toPath = '/' + d._getTypeByContext(context) + '/login'
-        context.redirect('302', toPath)
-      } else {
-        throw e
-      }
-    } else if (e.errorId === 'UNKNOWN_ERROR') {
-      MessageBox({
-        title: '警告',
-        message: '网络错误',
-        type: 'error'
-      })
-    } else {
-      MessageBox({
-        title: '警告',
-        message: e.message,
-        type: 'error'
-      })
-    }
-  })
-}
+// if (process.browser) {
+//   d.api.onDataClientError(function onDataClientError (e, context) {
+//     var toPath
+//     if (e.errorId === 'NO_LOGIN' && context) {
+//       if (context.$router && context.$route) {
+//         toPath = '/' + d._getTypeByRoute(context.$route) + '/login'
+//         context.$router.push(toPath)
+//       } else if (context.redirect) {
+//         toPath = '/' + d._getTypeByContext(context) + '/login'
+//         context.redirect('302', toPath)
+//       } else {
+//         throw e
+//       }
+//     } else if (e.errorId === 'UNKNOWN_ERROR') {
+//       MessageBox({
+//         title: '警告',
+//         message: '网络错误',
+//         type: 'error'
+//       })
+//     } else {
+//       MessageBox({
+//         title: '警告',
+//         message: e.message,
+//         type: 'error'
+//       })
+//     }
+//   })
+// }
 
 export default {
   middleware: 'adminCheckLogin',

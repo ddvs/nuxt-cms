@@ -26,26 +26,26 @@ Vue.prototype.$prompt = MessageBox.prompt
 Vue.prototype.$notify = Notification
 Vue.prototype.$message = Message
 
-if (process.browser) {
-  d.api.onDataClientError(function onDataClientError (e, context) {
-    var toPath
-    if (e.errorId === 'NO_LOGIN' && context) {
-      if (context.$router && context.$route) {
-        toPath = '/' + d._getTypeByRoute(context.$route) + '/login'
-        context.$router.push(toPath)
-      } else if (context.redirect) {
-        toPath = '/' + d._getTypeByContext(context) + '/login'
-        context.redirect('302', toPath)
-      } else {
-        throw e
-      }
-    } else if (e.errorId === 'UNKNOWN_ERROR') {
-      MessageBox('网络错误', '错误')
-    } else {
-      MessageBox(e.message, '错误')
-    }
-  })
-}
+// if (process.browser) {
+//   d.api.onDataClientError(function onDataClientError (e, context) {
+//     var toPath
+//     if (e.errorId === 'NO_LOGIN' && context) {
+//       if (context.$router && context.$route) {
+//         toPath = '/' + d._getTypeByRoute(context.$route) + '/login'
+//         context.$router.push(toPath)
+//       } else if (context.redirect) {
+//         toPath = '/' + d._getTypeByContext(context) + '/login'
+//         context.redirect('302', toPath)
+//       } else {
+//         throw e
+//       }
+//     } else if (e.errorId === 'UNKNOWN_ERROR') {
+//       MessageBox('网络错误', '错误')
+//     } else {
+//       MessageBox(e.message, '错误')
+//     }
+//   })
+// }
 
 export default {
   head () {

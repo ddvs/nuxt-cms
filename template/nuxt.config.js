@@ -56,23 +56,9 @@ module.exports = {
         }
       },
       preset: {
-        autoprefixer: {
-          grid: true
-        }
+        autoprefixer: true
       }
     },
-    // extend (config, { isClient }) {
-    //   config.module.rules.push({
-    //     test: /\.css$/i,
-    //     use: [
-    //       {
-    //         loader: 'style-loader',
-    //         options: { injectType: 'singletonStyleTag' },
-    //       },
-    //       'css-loader',
-    //     ]
-    //   })
-    // },
     'html.minify': {
       removeComments: process.env.NODE_ENV === 'production'
     }
