@@ -1,8 +1,6 @@
-<style src="mint-ui/lib/font/style.css" lang="css"></style>
-<style src="mint-ui/lib/message-box/style.css" lang="css"></style>
-<style src="ddv-ui/css/wap/base.css" lang="css"></style>
 <!-- 这个是图片、容器指令用到的css，可合并到base.css -->
 <style src="~/assets/css/flex.css" lang="css"></style>
+
 <style>
 body * {
   max-height: 999999px;
@@ -19,6 +17,9 @@ body * {
 import Vue from 'vue'
 import { MessageBox } from 'mint-ui'
 import d from 'ddv-util'
+import 'mint-ui/lib/font/style.css'
+import 'mint-ui/lib/message-box/style.css'
+import 'ddv-ui/css/wap/base.css'
 Vue.filter('d', d)
 
 if (process.browser) {

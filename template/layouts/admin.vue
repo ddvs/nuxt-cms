@@ -1,10 +1,5 @@
-<style src="element-ui/lib/theme-chalk/index.css" lang="css"></style>
 <style src="bootstrap/dist/css/bootstrap.min.css" lang="css"></style>
 <style src="font-awesome/css/font-awesome.min.css" lang="css"></style>
-<style src="ddv-ui/css/admin/core.css" lang="css"></style>
-<style src="ddv-ui/css/admin/components.css" lang="css"></style>
-<style src="ddv-ui/css/admin/colors.css" lang="css"></style>
-<style src="ddv-ui/css/admin/base.css" lang="css"></style>
 
 <style lang="scss">
   [v-cloak] {
@@ -275,6 +270,11 @@ import {
   Row,
   tooltip
 } from 'element-ui'
+import 'element-ui/lib/theme-chalk/index.css'
+import 'ddv-ui/css/admin/core.css'
+import 'ddv-ui/css/admin/components.css'
+import 'ddv-ui/css/admin/colors.css'
+import 'ddv-ui/css/admin/base.css'
 
 Vue.filter('d', d)
 Vue.prototype.$loading = Loading.service

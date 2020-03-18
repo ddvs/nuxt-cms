@@ -1,8 +1,3 @@
-<style src="element-ui/lib/theme-chalk/base.css"></style>
-<style src="element-ui/lib/theme-chalk/loading.css"></style>
-<style src="element-ui/lib/theme-chalk/message-box.css"></style>
-<style src="element-ui/lib/theme-chalk/message.css"></style>
-<style src="element-ui/lib/theme-chalk/notification.css"></style>
 <!-- 这个是图片、容器指令用到的css，可合并到base.css -->
 <style src="~/assets/css/flex.css" lang="css"></style>
 <template>
@@ -15,6 +10,11 @@
 import Vue from 'vue'
 import d from 'ddv-util'
 import { Loading, MessageBox, Message, Notification } from 'element-ui'
+import 'element-ui/lib/theme-chalk/base.css'
+import 'element-ui/lib/theme-chalk/loading.css'
+import 'element-ui/lib/theme-chalk/message-box.css'
+import 'element-ui/lib/theme-chalk/message.css'
+import 'element-ui/lib/theme-chalk/notification.css'
 
 Vue.filter('d', d)
 

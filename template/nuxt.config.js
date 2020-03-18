@@ -61,13 +61,18 @@ module.exports = {
         }
       }
     },
-    // extend (config, { isClient }) {
-    //   if (isClient) {
-    //     // 为客户端打包进行手工的扩展处理
-    //     // 👇配置已不可用
-    //     // config.entry.vendor.push('babel-polyfill')
-    //   }
-    // },
+    extend (config, { isClient }) {
+      config.module.rules.push({
+        test: /\.css$/i,
+        use: [
+          {
+            loader: 'style-loader',
+            options: { injectType: 'singletonStyleTag' },
+          },
+          'css-loader',
+        ]
+      })
+    },
     'html.minify': {
       removeComments: process.env.NODE_ENV === 'production'
     }
