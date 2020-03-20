@@ -1,3 +1,4 @@
+const isProduction = process.env.NODE_ENV === 'production'
 module.exports = {
   /*
      ** Headers of the page
@@ -29,6 +30,7 @@ module.exports = {
     vendor: ['ddv-restful-api', 'ddv-restful-ws-api', 'ddv-util'],
     postcss: {
       plugins: {
+        'postcss-nesting': {},
         'postcss-salad': {
           'browsers': ['last 3 versions'],
           'features': {
@@ -50,9 +52,6 @@ module.exports = {
         },
         'postcss-flexible': {
           remUnit: 75
-        },
-        'postcss-cssnext': {
-          browsers: ['last 3 versions']
         }
       },
       preset: {
@@ -60,7 +59,7 @@ module.exports = {
       }
     },
     'html.minify': {
-      removeComments: process.env.NODE_ENV === 'production'
+      removeComments: isProduction
     },
     extend (config, ctx) {
       // Run ESLint on save
@@ -72,7 +71,8 @@ module.exports = {
       //     exclude: /(node_modules)/
       //   })
       // }
-    }
+    },
+    extractCSS: isProduction,
   },
   plugins: [
     '~/plugins/ddv-restful-api',

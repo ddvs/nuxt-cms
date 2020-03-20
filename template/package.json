@@ -29,10 +29,10 @@
     "lodash": "^4.17.4",
     "mint-ui": "~2.2.9",
     "node-sass": "^4.13.1",
-    "postcss-cssnext": "^3.0.2",
     "postcss-flexible": "^0.4.1",
     "postcss-import": "^11.0.0",
     "postcss-loader": "^3.0.0",
+    "postcss-nesting": "^7.0.1",
     "postcss-salad": "^2.0.1",
     "sass-loader": "^6.0.6",
     "scss-loader": "~0.0.1"
