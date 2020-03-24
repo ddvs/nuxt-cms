@@ -8,8 +8,17 @@ module.exports = {
     browser: true,
     node: true
   },
+  typescript: {
+    typeCheck: {
+      eslint: true
+    }
+  },
+  buildModules: ['@nuxt/typescript-build'],
   // https://github.com/feross/standard/blob/master/RULES.md#javascript-standard-style
-  extends: 'standard',
+  extends: [
+    'standard',
+    '@nuxtjs/eslint-config-typescript'
+  ],
   // required to lint *.vue files
   plugins: [
     'html'

@@ -1,5 +1,12 @@
 const isProduction = process.env.NODE_ENV === 'production'
+
 module.exports = {
+  typescript: {
+    typeCheck: {
+      eslint: true
+    }
+  },
+  buildModules: ['@nuxt/typescript-build'],
   /*
      ** Headers of the page
      */
