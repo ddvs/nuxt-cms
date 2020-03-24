@@ -13,6 +13,8 @@
       "esnext.asynciterable",
       "dom"
     ],
+    // 实验性
+    "experimentalDecorators": true,
     "esModuleInterop": true,
     "allowJs": true,
     "sourceMap": true,
@@ -30,7 +32,8 @@
     "types": [
       "@types/node",
       "@nuxt/types"
-    ]
+    ],
+    "removeComments": true
   },
   "exclude": [
     "node_modules"
