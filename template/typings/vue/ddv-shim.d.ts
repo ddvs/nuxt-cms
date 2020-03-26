@@ -1,5 +1,9 @@
 import { Plugin } from "@nuxt/types";
 
+/**
+ * 一般用作接收 Promise 错误进行统一处理
+ *
+ */
 type autoRetry = (fn: () => Promise<any>) => Promise<any>;
 
 interface DdvUtil extends Promise<any> {
@@ -60,6 +64,7 @@ interface DdvUtil extends Promise<any> {
    * @param isClean
    */
   query(input: { [key: string]: any }, isClean?: boolean): DdvUtil;
+  [key: string]: any;
 }
 
 declare module "vue/types/vue" {
