@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "strictPropertyInitialization": false,
     /**
       * target es2018 可以使用 Optional Chaining 和 Nullish Coalescing 語法
       * @see https://www.typescriptlang.org/docs/handbook/release-notes/typescript-3-7.html#optional-chaining
@@ -15,6 +16,7 @@
     ],
     // 实验性
     "experimentalDecorators": true,
+    "skipLibCheck": true,
     "esModuleInterop": true,
     "allowJs": true,
     "sourceMap": true,
@@ -29,11 +31,11 @@
         "./*"
       ]
     },
+    "removeComments": true,
     "types": [
       "@types/node",
       "@nuxt/types"
-    ],
-    "removeComments": true
+    ]
   },
   "exclude": [
     "node_modules"

@@ -6,7 +6,10 @@ module.exports = {
       eslint: true
     }
   },
-  buildModules: ['@nuxt/typescript-build'],
+  buildModules: [
+    '@nuxt/typescript-build',
+    'nuxt-typed-vuex'
+  ],
   /*
      ** Headers of the page
      */
@@ -30,6 +33,9 @@ module.exports = {
     }
   },
   build: {
+    transpile: [
+      /typed-vuex/,
+    ],
     babel: {
       plugins: [
         [
