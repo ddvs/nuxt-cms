@@ -30,6 +30,21 @@ module.exports = {
     }
   },
   build: {
+    babel: {
+      plugins: [
+        [
+          '@babel/plugin-proposal-decorators', {
+            legacy: true
+          }
+        ],
+        [
+          '@babel/plugin-proposal-class-properties',
+          {
+            loose: true
+          }
+        ]
+      ]
+    },
     /**
      * @see https://zh.nuxtjs.org/api/configuration-build#publicpath
      */
