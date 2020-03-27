@@ -1,10 +1,11 @@
-import { Plugin } from "@nuxt/types";
+import { Plugin } from '@nuxt/types'
 
+type anyData = { [key: string]: any }
 /**
  * 一般用作接收 Promise 错误进行统一处理
  *
  */
-type autoRetry = (fn: () => Promise<any>) => Promise<any>;
+type autoRetry = (fn: (data: anyData, addData: (data: anyData) => void) => Promise<any>) => Promise<any>;
 
 interface DdvUtil extends Promise<any> {
   autoRetry: autoRetry;
@@ -12,12 +13,12 @@ interface DdvUtil extends Promise<any> {
    * 发送的数据会自动转换为 query 服务器GET参数
    * @param input 发送参数
    */
-  send(input?: { [key: string]: any }): DdvUtil;
+  send(input?: anyData): DdvUtil;
   /**
    * 将发送到 send 的参数先去除无效数据，如 null、false、undefined
    * @param input 发送参数
    */
-  sendValidData(input?: { [key: string]: any }): DdvUtil;
+  sendValidData(input?: anyData): DdvUtil;
   /**
    * 使用不经过处理的参数发送给服务器，非必要不建议使用
    */
@@ -57,32 +58,39 @@ interface DdvUtil extends Promise<any> {
    * @param input 请求头
    * @param isClean 是否清除默认请求头
    */
-  headers(input: { [key: string]: any }, isClean?: boolean): DdvUtil;
+  headers(input: anyData, isClean?: boolean): DdvUtil;
   /**
    * 服务器GET参数
    * @param input
    * @param isClean
    */
-  query(input: { [key: string]: any }, isClean?: boolean): DdvUtil;
+  query(input: anyData, isClean?: boolean): DdvUtil;
+  isBrowser: boolean
+  isServer: boolean
+  redirect: (path: string, replace?: boolean) => void
   [key: string]: any;
 }
 
-declare module "vue/types/vue" {
+declare module 'vue/types/vue' {
   interface Vue {
     $ddvUtil: DdvUtil;
   }
 }
 
-declare module "@nuxt/types" {
+declare module '@nuxt/types' {
   interface NuxtAppOptions {
+    ddvUtil: DdvUtil;
+    autoRetry: autoRetry;
+  }
+  interface Context {
     ddvUtil: DdvUtil;
     autoRetry: autoRetry;
   }
 }
 
 const ddvUtil: Plugin = (context, inject) => {
-  inject("autoRetry", autoRetry);
-  inject("ddvUtil", DdvUtil);
-};
+  inject('autoRetry', autoRetry)
+  inject('ddvUtil', DdvUtil)
+}
 
-export default ddvUtil;
+export default ddvUtil
