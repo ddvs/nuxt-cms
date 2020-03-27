@@ -8,6 +8,8 @@ module.exports = {
   },
   buildModules: [
     '@nuxt/typescript-build',
+    // 必要使用 nuxt-typed-vuex 导出 accessorType，不让会导致死循环
+    // @see: https://nuxt-typed-vuex.danielcroe.com/setup.html#add-type-definitions
     'nuxt-typed-vuex'
   ],
   /*
